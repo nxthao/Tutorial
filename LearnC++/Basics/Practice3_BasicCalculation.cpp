@@ -27,8 +27,8 @@ int main()
 	std::cout << "Please input the value! \n";
     a = GetValueFromUser();
     b = GetValueFromUser();
-    std::cout << "Total of " << a << " and " << b '\n';
-    std::cout << Total(a, b);
-    std::cout << "Multiple of " << a << " and " << b "\n";
-    std::cout << Multiple(a, b);
+    std::cout << "Total of " << a << " and " << b << '\n';
+    std::cout << Total(a, b) << "\n";
+    std::cout << "Multiple of " << a << " and " << b << "\n";
+    std::cout << Multiple(a, b) << "\n";
 }
