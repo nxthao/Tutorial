@@ -6,6 +6,7 @@ Check the string contain all digital or not
 Check String has point or not, if it has, remove it
 after that, replace it by %20
 */
+
 using namespace std;
 
 string domain;
