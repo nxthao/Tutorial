@@ -1,30 +1,28 @@
 #include "pch.h"
 #include <iostream>
 #include <string>
+/*
+Note: Overload. Should move a little argument function to at the begin
+of the class
+*/
 
 using namespace std;
 
 class Ball
 {
-private:
 	string m_color;
-	float m_radius;
+	double m_radius;
 
 public:
-	Ball()
+	Ball(double radius)
 	{
+		m_radius = radius;
 		m_color = "black";
-		m_radius = 10.0;
 	}
 
-	Ball(string color, float radius)
+	Ball(string color = "black", double radius = 10.0)
 	{
 		m_color = color;
-		m_radius = radius;
-	}
-
-	Ball(float radius)
-	{
 		m_radius = radius;
 	}
 
@@ -40,7 +38,7 @@ int main()
 	Ball def;
     def.print();
 
-	Ball blue('Blue');
+	Ball blue("Blue");
 	blue.print();
 
 	Ball seven(7);
