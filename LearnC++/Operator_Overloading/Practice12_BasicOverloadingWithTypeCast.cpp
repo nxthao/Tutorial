@@ -10,7 +10,6 @@ public:
 	Cents(int c = 0)
 		: m_c(c)
 	{
-
 	}
 
 	operator int() const 
