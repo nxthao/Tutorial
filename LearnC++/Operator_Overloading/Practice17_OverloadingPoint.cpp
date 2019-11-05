@@ -12,7 +12,6 @@ public:
 	{
 
 	}
-
 	friend Point operator+(Point& value1, Point& value2);
 	Point operator-() const;
 	Point operator=(int value);
