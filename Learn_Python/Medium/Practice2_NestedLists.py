@@ -7,7 +7,6 @@ def sort_grade(a):
                 tmp = a[i]
                 a[i] = a[j]
                 a[j] = tmp
-    return a
 
 def runner_up(arr):
     for i in range(0, N):
@@ -22,6 +21,17 @@ def show_runner_up(arr, ru):
 
     print(arr_ru)
     print(len(arr_ru))
+
+    for i in range(0, len(arr_ru)):
+        for j in range(i + 1, len(arr_ru)):
+            if arr_ru[i][0] > arr_ru[j][0]:
+                tmp = arr_ru[i]
+                arr_ru[i] = arr_ru[j]
+                arr_ru[j] = tmp
+
+    for i in range(0, len(arr_ru)):
+        print(arr_ru[i][0])
+
 
 N = int(input("N: "))
 for i in range(0, N):
