@@ -64,3 +64,4 @@ extension Math {
 }
 let prime = Math(number: 6)
 print("Prime of \(prime.number): \(prime.primeFactor())")
+
