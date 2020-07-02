@@ -24,7 +24,7 @@ print("Type method.")
 // Unable to access to property when using Static in method
 print("Factorial does n't use type method.")
 struct Math{
-    var number : Int
+    var number : Int = 1
 
     func factorial() -> Int{
         (1...self.number).reduce(1, *)
@@ -41,4 +41,26 @@ struct MathTypeMethod{
 }
 print(MathTypeMethod.factorial(number: 6))
 
-
+extension Math {
+    func primeFactor() -> [Int]{
+        var remainingValue = self.number
+        var testFactor = 2
+        var prime : [Int] = []
+        
+        while testFactor * testFactor <= remainingValue {
+            if remainingValue % testFactor == 0{
+                prime.append(testFactor)
+                remainingValue /= testFactor
+            }
+            else{
+                testFactor += 1
+            }
+        }
+        if remainingValue > 1 {
+            prime.append(remainingValue)
+        }
+        return prime
+    }
+}
+let prime = Math(number: 6)
+print("Prime of \(prime.number): \(prime.primeFactor())")
