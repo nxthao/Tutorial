@@ -21,3 +21,5 @@ print("Area Cricle: \(circleArea.area)")
 print("Tripple area: \(circleArea.TrippleArea())")
 print("Area Cricle: \(circleArea.area)")
 print("Radius after trippling area: \(circleArea.radius)")
+
+
