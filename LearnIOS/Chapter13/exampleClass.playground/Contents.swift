@@ -22,8 +22,12 @@ TN.firstName = "T"
 var origin = TN
 print("First name: \(TN.firstName)")
 print("First name of origin: \(origin.firstName)")
+origin.lastName = "Xuan"
+print("Full name: \(TN.fullName)")
+print("Full name of origin: \(origin.fullName)")
 print("Come back default.")
 TN.firstName = "Thao"
+TN.lastName = "Nguyen"
 
 
 print("Object identity.")
