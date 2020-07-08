@@ -57,3 +57,35 @@ if let indexTN = imposters.firstIndex(where: {$0 === TN}){
     imposters[indexTN].lastName = "N"
 }
 print(TN.fullName)
+
+
+print("Method and mutability.")
+
+struct Grade{
+    let letter : Character
+    let point : Int
+    let credits : Int
+}
+
+class Student{
+    var firstName : String
+    var lastName : String
+    var grades : [Grade] = []
+    
+    init(firstName : String, lastName : String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    func recordGrade(grade : Grade){
+        grades.append(grade)
+    }
+}
+
+var tn = Student(firstName: "Thao", lastName: "Nguyen")
+var math = Grade(letter: "A", point: 9, credits: 3)
+var chemistry = Grade(letter: "A", point: 10, credits: 3)
+
+tn.recordGrade(grade: math)
+tn.recordGrade(grade: chemistry)
+print(tn.grades)
