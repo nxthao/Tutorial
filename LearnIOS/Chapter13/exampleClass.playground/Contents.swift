@@ -84,6 +84,16 @@ class Student{
     func recordGrade(grade : Grade){
         grades.append(grade)
     }
+    
+    var GPA : Double{
+        var totalPoints : Double = 0.0
+        var totalCredits : Double = 0.0
+        for grade in grades{
+            totalPoints += Double(grade.point)
+            totalCredits += Double(grade.credits)
+        }
+        return totalPoints / totalCredits
+    }
 }
 
 var tn = Student(firstName: "Thao", lastName: "Nguyen")
@@ -93,3 +103,4 @@ var chemistry = Grade(letter: "A", point: 10, credits: 3)
 tn.recordGrade(grade: math)
 tn.recordGrade(grade: chemistry)
 print(tn.grades)
+print(tn.GPA)
