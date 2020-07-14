@@ -28,7 +28,38 @@ class Student : Person{
         print("\(super.fullName()) are in grade \(self.grade)")
     }
 }
+
+
 let nn = Person(firstName: "Nguyen", lastName: "Nguyen")
 print(nn.fullName())
 let tn = Student(firstName: "Thao", lastName: "Nguyen", grade: 20)
 tn.printInformation()
+
+
+print("Polymorphism")
+class BandMember : Student{
+    var minimumPracticeTime = 2
+}
+
+class obeyMember : BandMember{
+    override var minimumPracticeTime: Int{
+        get{
+            super.minimumPracticeTime * 2
+        }
+        set{
+            super.minimumPracticeTime = newValue / 2
+        }
+    }
+}
+
+func phoneBookName(_ person : Person){
+    print("\(person.fullName())")
+}
+var t = Person(firstName: "Thao", lastName: "Nguyen")
+var n = obeyMember(firstName: "Nguyen", lastName: "Nguyen", grade: 20)
+
+// With a function but give many results.
+phoneBookName(t)
+phoneBookName(n)
+
+
