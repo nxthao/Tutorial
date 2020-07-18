@@ -8,7 +8,7 @@ class Person{
         self.firstName = firstName
         self.lastName = lastName
     }
-    
+
     func fullName() -> String{
         "\(self.firstName) \(self.lastName)"
     }
@@ -24,9 +24,17 @@ class Student : Person{
     
     init(firstName : String, lastName : String, grade : Grade) {
         self.grade = grade
-        super.init(firstName: firstName, lastName: lastName)
+        super.init(firstName: "Thao", lastName: lastName)
     }
     
+//    convenience init(student : Student) {
+//
+//        (
+//            firstName : student.firstName,
+//            lastName : student.lastName,
+//            grade : Grade(letter: "A", point: 10)
+//        )
+//    }
     
     func printInformation(){
         print("\(super.fullName()) are in grade \(self.grade)")
@@ -95,6 +103,11 @@ print("Overide")
 
 class StudentAthelete : Student{
     var studenFailed : [Grade] = []
+    
+    
+    convenience init(tn : Student) {
+        self.init(firstName : tn.firstName, lastName : "Nguyen")
+    }
     override func recordGrade() {
         super.recordGrade()
     }
