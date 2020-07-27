@@ -1,6 +1,7 @@
 import UIKit
+import Foundation
 
-enum Month{
+enum Month : Int{
     case january
     case february
     case march
@@ -28,5 +29,12 @@ func season(month : Month) -> String{
     }
 }
 
+// To use raw value, need to clare it in decalare of enum.( If declare Int: raw will be Int, if String, raw will be String)
+func monthsUntilNewYear(month : Month) -> Int{
+    Month.december.rawValue - month.rawValue
+}
+
 let jan = Month.january
+print(jan)
 print("Which season is january? \(season(month: jan))")
+print(monthsUntilNewYear(month: jan))
