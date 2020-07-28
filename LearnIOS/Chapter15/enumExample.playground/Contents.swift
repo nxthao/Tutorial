@@ -77,3 +77,24 @@ case .success(newBalance: let newBalance):
 case .error(message: let message):
     print(message)
 }
+
+
+print("Iterating through all case")
+enum Pet : Int, CaseIterable{
+    case dog, cat, hamster, fish, turtle
+}
+
+for pet in Pet.allCases{
+    print(pet.rawValue)
+}
+
+
+print("Uninhabitted type")
+enum Math{
+    static func factorial(number : Int) -> Int{
+        (1...number).reduce(1, *)
+    }
+}
+
+let fac = Math.factorial(number: 5)
+print(fac)
