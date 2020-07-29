@@ -46,8 +46,22 @@ enum Coin : Int{
 
 let coinPurse : [Coin] = [.penny, .nickel, .dime, .quarter, .dime, .quarter, .dime, .nickel, .dime]
 
-var balance = 0
-for coin in coinPurse{
-    balance += coin.rawValue
+func value(money : [Coin]) -> Int
+{
+    var balance = 0
+    for coin in money{
+        balance += coin.rawValue
+    }
+    return balance
 }
-print("Balance: \(balance)")
+print("Balance: \(value(money: coinPurse))\n")
+
+
+print("Status of light")
+enum Light{
+    case off, on
+}
+
+let lightStatus = Light.on
+print("Status of light: \(lightStatus)\n")
+
