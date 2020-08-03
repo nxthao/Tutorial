@@ -64,7 +64,7 @@ let recordA = Record(wins: 7, loses: 2)
 let recordB = Record(wins: 7, loses: 2)
 print(recordA == recordB)
 
-extension Record{
+extension Record : Comparable{
     static func <(lhs : Record, rhs : Record) -> Bool{
         if lhs.wins == rhs.wins{
             return lhs.loses > rhs.loses
@@ -74,7 +74,33 @@ extension Record{
 }
 
 print(recordA < recordB)
-let recordC = Record(wins: 10, loses: 5)
 
+print("Free function")
+let recordC = Record(wins: 20, loses: 5)
+let recordD = Record(wins: 10, loses: 15)
+let recordE = Record(wins: 5, loses: 15)
 
+var recordArray : [Record] = [recordA, recordB, recordC, recordD]
 
+extension Record{
+    static func Print(recordLeague : [Record]){
+        for record in recordLeague{
+            print("wins: \(record.wins), loses: \(record.loses)")
+        }
+    }
+    static func Print(record : Record) -> String{
+        "wins: \(record.wins), loses: \(record.loses)"
+    }
+}
+
+Record.Print(recordLeague: recordArray)
+
+print("After sorting")
+recordArray.sort() // This sort is of "Comparable" protocol
+Record.Print(recordLeague: recordArray)
+
+let win = recordArray.max()
+print("First price: \(Record.Print(record: win!))")
+
+recordArray.starts(with: [recordA, recordC]) // false
+recordArray.contains(recordE) // false
