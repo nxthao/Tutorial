@@ -1,28 +1,32 @@
 import UIKit
 
-var str = "Hello Thao  Nguyen from the world"
+var str = "Hello Thao Nguyen from the   world"
 
-func splitFunction(for str : String, separatedBy : Character) -> [String]?{
-    guard str.count > 0 else {
-        return nil
-    }
-    var result : [String] = []
-    var lastWorldIndex = str.startIndex
-    for i in str.indices{
-        if str[i] == separatedBy{
-            // if next element is differrence with current element we will do
-            if str[str.index(after: i)] != separatedBy{
-                let elementStr = str[lastWorldIndex..<i]
-                result.append(String(elementStr))
-                lastWorldIndex = str.index(after: i)
+func split(sentence : String, seperatedby : Character) -> [String]{
+    var startInd = sentence.startIndex
+    let lastIndex = sentence.endIndex
+    var flagIndex = false
+    var newSentence : [String] = []
+    for ind in sentence.indices{
+        if sentence[ind] == seperatedby{
+            if flagIndex == false{
+                let elementSentence = String(sentence[startInd..<ind])
+                newSentence.append(elementSentence)
             }
+            flagIndex = true
+        }
+        else{
+            if flagIndex == true{
+                startInd = ind
+            }
+            flagIndex = false
         }
     }
-    //    Add last String in result
-    let element = str[lastWorldIndex..<str.endIndex]
-    result.append(String(element))
-    return result
+    let lastSentence = String(sentence[startInd..<lastIndex])
+    newSentence.append(lastSentence)
+    return newSentence
 }
-if let result = splitFunction(for: str, separatedBy: " "){
-    print(result)
-}
+
+let result = split(sentence: str, separatedBy: " ")
+print(result)
+
