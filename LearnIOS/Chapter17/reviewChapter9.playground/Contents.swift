@@ -17,7 +17,7 @@ func countWord(sentence : String) -> Int{
     count += 1
     return count
 }
-var str = "Hello Thao Nguyen from the      world."
+var str = "Hello Thao Nguyen from the     world."
 
 let numberOfWords = countWord(sentence: str)
 print("The number of words: \(numberOfWords)")
