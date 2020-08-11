@@ -9,11 +9,15 @@ func wordCount(for str : String) -> Int {
         return 0
     }
     for element in str {
-        if element == " " && lastSpace == false{
-            count += 1
-            lastSpace = true
+        if element == " " {
+            if lastSpace == false{
+                count += 1
+                lastSpace = true
+            }
         }
-        lastSpace = false
+        else{
+            lastSpace = false
+        }
     }
     // count 1 for last word
     count += 1

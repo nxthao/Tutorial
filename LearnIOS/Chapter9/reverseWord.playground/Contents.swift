@@ -1,6 +1,6 @@
 import UIKit
 
-var str = "I am come from Dak Lak province"
+var str = "I am from Dak Lak province"
 
 func reverseWord(for str : String, seperatedBy : Character) -> [String]?{
     guard str.count > 0 else {
