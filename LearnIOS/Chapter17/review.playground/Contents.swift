@@ -54,3 +54,37 @@ if shipIsBeaten{
 else{
     print("Miss the ship")
 }
+
+
+print("Review property with willset and didset.")
+
+struct lightBulb{
+    static var maxCurrent = 40
+    var isOn = false
+    var current : Int{
+        willSet{
+            if newValue > lightBulb.maxCurrent{
+                print("The new current is high. To safe, the light will turn off!")
+                self.isOn = false
+                print("Please decrease the current!")
+            }
+        }
+        didSet{
+            if current > lightBulb.maxCurrent{
+                print("The light bulb was broken!")
+                print("Change the ligh bulb and change current to old value!")
+                current = oldValue
+            }
+        }
+    }
+}
+var light = lightBulb(isOn: true, current: 5)
+print("The current: \(light.current)")
+print("Status of the light: \(light.isOn)")
+lightBulb.maxCurrent = 10
+print("The current: \(light.current)")
+print("Status of the light: \(light.isOn)")
+light.current = 20
+print("The current: \(light.current)")
+print("Status of the light: \(light.isOn)")
+
