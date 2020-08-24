@@ -18,10 +18,6 @@ class User{
     }
 }
 
-do {
-    let _ = User(name: "Thao Nguyen")
-}
-
 class Phone{
     let model : String
     var owner : User?
@@ -36,5 +32,16 @@ class Phone{
     }
 }
 do{
+    let user = User(name: "Thao Nguyen")
     let iphone = Phone(model: "iPhone7")
+    // When I add user.add, it will have the link between user and iphone, it is unable to delocated
+    //    User Thao Nguyen is initialized
+    //    Model iPhone7 is initialized
+    //    Deallocated model iPhone7
+    //    Deallocated user Thao Nguyen
+    //    user.add(phone: iphone)
+    user.add(phone: iphone)
+    //    User Thao Nguyen is initialized
+    //    Model iPhone7 is initialized
 }
+
