@@ -9,8 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var alertIsVisible = false
     var body: some View {
-        Text("Hello Thao Nguyen").fontWeight(.bold).foregroundColor(.blue)
+        VStack{
+            Text("Hello Thao Nguyen").fontWeight(.bold).foregroundColor(.blue)
+            Button(action: {
+                print("Button is pushed")
+                self.alertIsVisible = true
+            }) {
+                Text("Hit me")
+            }
+            .alert(isPresented: self.$alertIsVisible){
+                Alert(title: Text("Hello there"), message: Text("Hello all of developer from Thao Nguyen developer!"), dismissButton: .default(Text("Awesome!")))
+            }
+        }
     }
 }
 
