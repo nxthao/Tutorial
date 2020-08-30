@@ -16,15 +16,17 @@ struct ContentView: View {
     // User interface views
     @State var isPushed = false
     @State var sliderValue = 0.0
-    var targetValue = Int.random(in: 1...100)
+    @State var targetValue = Int.random(in: 1...100)
     var makeRoundSliderValue : Int{
         Int(self.sliderValue.rounded())
     }
+    @State var score = 0
+    @State var round = 1
     
     // TODO: Compact the message in alert.
     var message : String{
         "Hello IOS developer from Thao Nguyen developer \n" +
-        "The slider value: \(self.makeRoundSliderValue) \n" +
+            "The slider value: \(self.makeRoundSliderValue) \n" +
         "Your score: \(calculateScoreValue())"
     }
     
@@ -34,7 +36,7 @@ struct ContentView: View {
             Spacer()
             // Target row
             HStack {
-                Text("Put the bullseye as close as you can to: ")
+                Text("Put the bullseye as close as you can to: ").foregroundColor(.red)
                 Text("\(self.targetValue)")
             }
             
@@ -52,10 +54,15 @@ struct ContentView: View {
                 print("Button is pushed")
                 self.isPushed = true
             }) {
-                Text("Submit your prediction!")
+                Text("Submit your prediction!").foregroundColor(.green)
             }
             .alert(isPresented: self.$isPushed){
-                Alert(title: Text("Hello there"), message: Text(message), dismissButton: .default(Text("awesome")))
+                Alert(title: Text("Hello there"), message: Text(self.message), dismissButton: .default(Text("awesome")){
+                    self.score += self.calculateScoreValue()
+                    self.round += 1
+                    self.targetValue = Int.random(in: 1...100)
+                    }
+                )
             }
             
             Spacer()
@@ -65,11 +72,11 @@ struct ContentView: View {
                     Text("Start over")
                 }
                 Spacer()
-                Text("Score: ")
-                Text("80")
+                Text("Score: ").foregroundColor(.red)
+                Text("\(self.score)")
                 Spacer()
-                Text("Round: ")
-                Text("1")
+                Text("Round: ").foregroundColor(.red)
+                Text("\(self.round)")
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("info")
@@ -84,13 +91,9 @@ struct ContentView: View {
     
     func calculateScoreValue() -> Int{
         var difference : Int
-        if self.makeRoundSliderValue > self.targetValue{
-            difference = self.makeRoundSliderValue - self.targetValue
-        }
-        else {
-            difference = self.targetValue - self.makeRoundSliderValue
-        }
-        return 100 - difference
+        let maximumScore = 100
+        difference = abs(self.makeRoundSliderValue - self.targetValue)
+        return maximumScore - difference
     }
 }
 
