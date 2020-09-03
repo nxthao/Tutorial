@@ -31,7 +31,10 @@ struct ContentView: View {
     }
     
     var sliderTargetDifference : Int{
-        abs(Int(sliderValue) - targetValue)
+        let a = abs(Int(makeRoundSliderValue) - targetValue)
+        print("slider value: \(makeRoundSliderValue)")
+        print("target value: \(targetValue)")
+        return a
     }
     
     // User interface content and layout
@@ -88,6 +91,9 @@ struct ContentView: View {
             }
             .padding(.all, 20)
         }
+        .onAppear(){
+            self.startNewGame()
+        }
     }
     
     // Methods
@@ -125,7 +131,7 @@ struct ContentView: View {
     }
     
     func startNewGame(){
-        score = 0
+        score = 100
         round = 0
         resetSliderTarget()
     }
