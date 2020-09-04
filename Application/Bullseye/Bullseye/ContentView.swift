@@ -31,10 +31,7 @@ struct ContentView: View {
     }
     
     var sliderTargetDifference : Int{
-        let a = abs(Int(makeRoundSliderValue) - targetValue)
-        print("slider value: \(makeRoundSliderValue)")
-        print("target value: \(targetValue)")
-        return a
+        abs(Int(makeRoundSliderValue) - targetValue)
     }
     
     // User interface content and layout
@@ -43,8 +40,14 @@ struct ContentView: View {
             Spacer()
             // Target row
             HStack {
-                Text("Put the bullseye as close as you can to: ").foregroundColor(.red)
+                Text("Put the bullseye as close as you can to:")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
                 Text("\(targetValue)")
+                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                    .foregroundColor(Color.yellow)
+                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
             }
             
             Spacer()
@@ -94,6 +97,7 @@ struct ContentView: View {
         .onAppear(){
             self.startNewGame()
         }
+        .background(Image("Background"))
     }
     
     // Methods
