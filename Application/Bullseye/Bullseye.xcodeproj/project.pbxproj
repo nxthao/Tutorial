@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481C6B2D250396DD00F1842A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C6B2C250396DD00F1842A /* AboutView.swift */; };
 		489866FB24FA3A6E0011D4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489866FA24FA3A6E0011D4AD /* AppDelegate.swift */; };
 		489866FD24FA3A6E0011D4AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489866FC24FA3A6E0011D4AD /* SceneDelegate.swift */; };
 		489866FF24FA3A6E0011D4AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489866FE24FA3A6E0011D4AD /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481C6B2C250396DD00F1842A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		489866F724FA3A6E0011D4AD /* Bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489866FA24FA3A6E0011D4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489866FC24FA3A6E0011D4AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				489866FA24FA3A6E0011D4AD /* AppDelegate.swift */,
 				489866FC24FA3A6E0011D4AD /* SceneDelegate.swift */,
 				489866FE24FA3A6E0011D4AD /* ContentView.swift */,
+				481C6B2C250396DD00F1842A /* AboutView.swift */,
 				4898670024FA3A720011D4AD /* Assets.xcassets */,
 				4898670524FA3A720011D4AD /* LaunchScreen.storyboard */,
 				4898670824FA3A720011D4AD /* Info.plist */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481C6B2D250396DD00F1842A /* AboutView.swift in Sources */,
 				489866FB24FA3A6E0011D4AD /* AppDelegate.swift in Sources */,
 				489866FD24FA3A6E0011D4AD /* SceneDelegate.swift in Sources */,
 				489866FF24FA3A6E0011D4AD /* ContentView.swift in Sources */,

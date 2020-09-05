@@ -13,6 +13,9 @@ struct ContentView: View {
     // Properties
     // ==========
     
+    // Color
+    let midnightBlue = Color(red: 0, green: 0.2, blue: 0.4)
+    
     // User interface views
     @State var isPushed = false
     @State var sliderValue = 0.0
@@ -36,68 +39,92 @@ struct ContentView: View {
     
     // User interface content and layout
     var body: some View {
-        VStack {
-            Spacer()
-            // Target row
-            HStack {
-                Text("Put the bullseye as close as you can to:")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
-                    .foregroundColor(Color.white)
-                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
-                Text("\(targetValue)")
-                    .font(Font.custom("Arial Rounded MT Bold", size: 24))
-                    .foregroundColor(Color.yellow)
-                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
-            }
-            
-            Spacer()
-            // Slider row
-            HStack{
-                Text("1")
-                Slider(value: $sliderValue, in: 1...100)
-                Text("100")
-            }
-            
-            Spacer()
-            // Button row
-            Button(action: {
-                print("Button is pushed")
-                self.isPushed = true
-            }) {
-                Text("Submit your prediction!").foregroundColor(.green)
-            }
-            .alert(isPresented: $isPushed){
-                Alert(title: Text(alertTitle()), message: Text(message), dismissButton: .default(Text("awesome")){
-                    self.startNewRound()
-                    }
-                )
-            }
-            
-            Spacer()
-            // Score row
-            HStack {
+        NavigationView{
+            VStack {
+                Spacer()
+                // Target row
+                HStack {
+                    Text("Put the bullseye as close as you can to:")
+                        .modifier(LabelStyle())
+                    Text("\(targetValue)")
+                        .modifier(ValueStyle())
+                }
+                
+                Spacer()
+                // Slider row
+                HStack{
+                    Text("1")
+                        .modifier(LabelStyle())
+                    Slider(value: $sliderValue, in: 1...100)
+                        .accentColor(Color.green)
+                    Text("100")
+                        .modifier(ValueStyle())
+                }
+                
+                Spacer()
+                // Button row
                 Button(action: {
-                    self.startNewGame()
+                    print("Button is pushed")
+                    self.isPushed = true
                 }) {
-                    Text("Start over")
+                    Text("Submit!")
+                        .modifier(ButtonLargeTextStyle())
                 }
+                .background(Image("Button"))
+                .shadow(color: Color.black, radius: 3, x: 2, y: 2)
+                    
+                .alert(isPresented: $isPushed){
+                    Alert(title: Text(alertTitle()), message: Text(message), dismissButton: .default(Text("Awesome!")){
+                        self.startNewRound()
+                        }
+                    )
+                }
+                
                 Spacer()
-                Text("Score: ").foregroundColor(.red)
-                Text("\(score)")
-                Spacer()
-                Text("Round: ").foregroundColor(.red)
-                Text("\(round)")
-                Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("info")
+                // Score row
+                HStack {
+                    Button(action: {
+                        self.startNewGame()
+                    }) {
+                        HStack{
+                            Image("StartOverIcon")
+                            Text("Start over")
+                                .modifier(ButtonSmallTextStyle())
+                        }
+                    }
+                    .background(Image("Button"))
+                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
+                    
+                    Spacer()
+                    Text("Score: ")
+                        .modifier(LabelStyle())
+                    Text("\(score)")
+                        .modifier(ValueStyle())
+                    Spacer()
+                    Text("Round: ")
+                        .modifier(LabelStyle())
+                    Text("\(round)")
+                        .modifier(ValueStyle())
+                    Spacer()
+                    NavigationLink(destination: AboutView()) {
+                        HStack{
+                            Image("InfoIcon")
+                            Text("info")
+                                .modifier(ButtonSmallTextStyle())
+                        }
+                    }
+                    .background(Image("Button"))
+                    .shadow(color: Color.black, radius: 3, x: 2, y: 2)
                 }
             }
-            .padding(.all, 20)
+            .padding(.all, 30)
+            .accentColor(midnightBlue)
+            .onAppear(){
+                self.startNewGame()
+            }
+            .background(Image("Background"))
         }
-        .onAppear(){
-            self.startNewGame()
-        }
-        .background(Image("Background"))
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // Methods
@@ -136,7 +163,7 @@ struct ContentView: View {
     
     func startNewGame(){
         score = 100
-        round = 0
+        round = 1
         resetSliderTarget()
     }
     
@@ -148,10 +175,44 @@ struct ContentView: View {
     
     func resetSliderTarget(){
         targetValue = Int.random(in: 1...100)
-        sliderValue = 50
+        sliderValue = Double.random(in: 1...100)
     }
 }
 
+// View modifier
+struct LabelStyle : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Arial Rounded MT Bold", size: 18))
+            .foregroundColor(Color.white)
+            .shadow(color: Color.black, radius: 3, x: 2, y: 2)
+    }
+}
+
+struct ValueStyle : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Arial Rounded MT Bold", size: 24))
+            .foregroundColor(Color.yellow)
+            .shadow(color: Color.black, radius: 3, x: 2, y: 2)
+    }
+}
+
+struct ButtonLargeTextStyle : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Arial Rounded MT Bold", size: 18))
+            .foregroundColor(Color.yellow)
+    }
+}
+
+struct ButtonSmallTextStyle : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font((Font.custom("Arial Rounded MT Bold", size: 12)))
+            .foregroundColor(Color.yellow)
+    }
+}
 // Preview
 // =======
 
