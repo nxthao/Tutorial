@@ -41,7 +41,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Spacer()
+                Spacer().navigationBarTitle("🎯 Bullseye 🎯")
                 // Target row
                 HStack {
                     Text("Put the bullseye as close as you can to:")
