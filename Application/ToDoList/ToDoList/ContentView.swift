@@ -9,25 +9,56 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // Properties
+    // ==========
+    
+    // User interface view
+    @State var checkListItems = [
+        "Walk the dog",
+        "Brush my teeth",
+        "Learn iOS development",
+        "Soccer practice",
+        "Eat ice cream",
+    ]
+    
+    // User interface content and layout
     var body: some View {
         NavigationView{
             List{
                 Section(header: Text("High priority")){
-                    Text("Walk the dog")
-                    Text("Brush my teeth")
-                    Text("Learn iOS development")
+                    Text(checkListItems[0])
+                        .onTapGesture {
+                            self.checkListItems[0] = "Learn English"
+                    }
+                    Text(checkListItems[1])
+                    Text(checkListItems[2])
                 }
                 Section(header: Text("Low priority")){
-                    Text("Soccer practice")
-                    Text("Eat ice cream")
+                    Text(checkListItems[3])
+                    Text(checkListItems[4])
                 }
             }
-        .listStyle(GroupedListStyle())
+            .listStyle(GroupedListStyle())
             .navigationBarTitle("To Do list")
+            .onAppear(){
+                self.checkListContent()
+            }
+        }
+    }
+    
+    // Methods
+    // ======
+    
+    func checkListContent(){
+        for item in checkListItems{
+            print(item)
         }
     }
 }
 
+// Preview
+// =======
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
