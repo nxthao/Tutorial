@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+struct CheckListItem : Identifiable{
+    let id = UUID()
+    var name : String
+    var isChecked = false
+}
+
 struct ContentView: View {
     
     // Properties
@@ -15,38 +21,37 @@ struct ContentView: View {
     
     // User interface view
     @State var checkListItems = [
-        "Walk the dog",
-        "Brush my teeth",
-        "Learn iOS development",
-        "Soccer practice",
-        "Eat ice cream",
+        CheckListItem(name: "Walk the dog", isChecked: true),
+        CheckListItem(name: "Brush my teeth"),
+        CheckListItem(name: "Learn iOS development", isChecked: true),
+        CheckListItem(name: "Soccer practice", isChecked: true),
+        CheckListItem(name: "Eat ice cream", isChecked: true),
     ]
     
     // User interface content and layout
     var body: some View {
         NavigationView{
             List{
-                Section(header: Text("High priority")){
-                    Text(checkListItems[0])
-                        .onTapGesture {
-                            self.checkListItems[0] = "Learn English"
+                ForEach(checkListItems){ item in
+                    HStack{
+                        Text(item.name)
+                        Spacer()
+                        Text(item.isChecked ? "✅" : "🔲")
                     }
-                    Text(checkListItems[1])
-                    Text(checkListItems[2])
+                    .onTapGesture {
+                        print("item: \(item.name)")
+                    }
                 }
-                Section(header: Text("Low priority")){
-                    Text(checkListItems[3])
-                    Text(checkListItems[4])
-                }
+                .onMove(perform: moveListItem)
+                .onDelete(perform: deleteListItem)
             }
-            .listStyle(GroupedListStyle())
+            .navigationBarItems(trailing: EditButton())
             .navigationBarTitle("To Do list")
             .onAppear(){
                 self.checkListContent()
             }
         }
     }
-    
     // Methods
     // ======
     
@@ -55,7 +60,18 @@ struct ContentView: View {
             print(item)
         }
     }
+    
+    func deleteListItem(whichElement : IndexSet){
+        checkListItems.remove(atOffsets : whichElement)
+        checkListContent()
+    }
+    
+    func moveListItem(whichElement : IndexSet, destination : Int) {
+        checkListItems.move(fromOffsets: whichElement, toOffset: destination)
+        checkListContent()
+    }
 }
+
 
 // Preview
 // =======
