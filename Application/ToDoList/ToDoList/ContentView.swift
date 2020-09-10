@@ -38,8 +38,12 @@ struct ContentView: View {
                         Spacer()
                         Text(item.isChecked ? "✅" : "🔲")
                     }
+                    .background(Color.white)
                     .onTapGesture {
-                        print("item: \(item.name)")
+                        if let matchIndex = self.checkListItems.firstIndex(where: {$0.id == item.id}){
+                            self.checkListItems[matchIndex].isChecked.toggle()
+                        }
+                        self.checkListContent()
                     }
                 }
                 .onMove(perform: moveListItem)
