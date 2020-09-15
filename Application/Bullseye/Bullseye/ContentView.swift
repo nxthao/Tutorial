@@ -19,7 +19,7 @@ struct ContentView: View {
     // User interface views
     @State var isPushed = false
     @State var sliderValue = 0.0
-    @State var targetValue = Int.random(in: 1...100)
+    @State var targetValue = Int.random(in: 0...100)
     var makeRoundSliderValue : Int{
         Int(sliderValue.rounded())
     }
@@ -53,9 +53,9 @@ struct ContentView: View {
                 Spacer()
                 // Slider row
                 HStack{
-                    Text("1")
-                        .modifier(LabelStyle())
-                    Slider(value: $sliderValue, in: 1...100)
+                    Text("0")
+                        .modifier(ValueStyle())
+                    Slider(value: $sliderValue, in: 0...100)
                         .accentColor(Color.green)
                     Text("100")
                         .modifier(ValueStyle())
@@ -174,8 +174,8 @@ struct ContentView: View {
     }
     
     func resetSliderTarget(){
-        targetValue = Int.random(in: 1...100)
-        sliderValue = Double.random(in: 1...100)
+        targetValue = Int.random(in: 0...100)
+        sliderValue = Double.random(in: 0...100)
     }
 }
 
