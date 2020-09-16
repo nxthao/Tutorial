@@ -109,15 +109,15 @@
 			children = (
 				48600A882506855900926707 /* AppDelegate.swift */,
 				48600A8A2506855900926707 /* SceneDelegate.swift */,
+				48E66ACF250A77EA00BCC7AC /* CheckListItem.swift */,
 				48600A8C2506855900926707 /* CheckListView.swift */,
+				48E66AD1250A7A6700BCC7AC /* CheckList.swift */,
+				48774B3425117C500094743E /* NewCheckListItemView.swift */,
+				4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */,
 				48600A8E2506855D00926707 /* Assets.xcassets */,
 				48600A932506855D00926707 /* LaunchScreen.storyboard */,
 				48600A962506855D00926707 /* Info.plist */,
-				48E66ACF250A77EA00BCC7AC /* CheckListItem.swift */,
 				48600A902506855D00926707 /* Preview Content */,
-				48E66AD1250A7A6700BCC7AC /* CheckList.swift */,
-				4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */,
-				48774B3425117C500094743E /* NewCheckListItemView.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";

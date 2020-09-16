@@ -12,6 +12,7 @@ struct NewCheckListItemView: View {
     
     var checkList : CheckList
     @State var newItemName = ""
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack{
             Text("Add new item")
@@ -21,12 +22,14 @@ struct NewCheckListItemView: View {
                     var newCheckListItem = CheckListItem(name: self.newItemName)
                     self.checkList.items.append(newCheckListItem)
                     self.checkList.checkListContent()
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack{
                         Image(systemName: "plus.circle.fill")
                         Text("Add item")
                     }
                 }
+                .disabled(newItemName.count == 0)
             }
             Text("Swipe down to cancel")
         }
