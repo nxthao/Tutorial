@@ -52,7 +52,7 @@ struct CheckListView: View {
             }
         }
         .sheet(isPresented: $newCheckListItemViewIsVisible){
-            Text("New item screen comming soon")
+            NewCheckListItemView(checkList: self.checkList)
         }
     }
     // Methods

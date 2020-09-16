@@ -16,6 +16,7 @@
 		48600A952506855D00926707 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48600A932506855D00926707 /* LaunchScreen.storyboard */; };
 		48600AA02506855D00926707 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48600A9F2506855D00926707 /* ToDoListTests.swift */; };
 		48600AAB2506855D00926707 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48600AAA2506855D00926707 /* ToDoListUITests.swift */; };
+		48774B3525117C500094743E /* NewCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48774B3425117C500094743E /* NewCheckListItemView.swift */; };
 		48E66AD0250A77EA00BCC7AC /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E66ACF250A77EA00BCC7AC /* CheckListItem.swift */; };
 		48E66AD2250A7A6700BCC7AC /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E66AD1250A7A6700BCC7AC /* CheckList.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		48600AA62506855D00926707 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48600AAA2506855D00926707 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		48600AAC2506855D00926707 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48774B3425117C500094743E /* NewCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckListItemView.swift; sourceTree = "<group>"; };
 		48E66ACF250A77EA00BCC7AC /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		48E66AD1250A7A6700BCC7AC /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				48600A902506855D00926707 /* Preview Content */,
 				48E66AD1250A7A6700BCC7AC /* CheckList.swift */,
 				4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */,
+				48774B3425117C500094743E /* NewCheckListItemView.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				48600A892506855900926707 /* AppDelegate.swift in Sources */,
 				48600A8B2506855900926707 /* SceneDelegate.swift in Sources */,
 				4813EBC9250C60FA00EDB3DF /* EditCheckListItemView.swift in Sources */,
+				48774B3525117C500094743E /* NewCheckListItemView.swift in Sources */,
 				48E66AD2250A7A6700BCC7AC /* CheckList.swift in Sources */,
 				48600A8D2506855900926707 /* CheckListView.swift in Sources */,
 				48E66AD0250A77EA00BCC7AC /* CheckListItem.swift in Sources */,
