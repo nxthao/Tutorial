@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4813EBC9250C60FA00EDB3DF /* EditCheckListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */; };
+		482432042512CD9800C03D9B /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482432032512CD9800C03D9B /* RowView.swift */; };
 		48600A892506855900926707 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48600A882506855900926707 /* AppDelegate.swift */; };
 		48600A8B2506855900926707 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48600A8A2506855900926707 /* SceneDelegate.swift */; };
 		48600A8D2506855900926707 /* CheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48600A8C2506855900926707 /* CheckListView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCheckListItemView.swift; sourceTree = "<group>"; };
+		482432032512CD9800C03D9B /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		48600A852506855900926707 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48600A882506855900926707 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48600A8A2506855900926707 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +113,10 @@
 				48600A8A2506855900926707 /* SceneDelegate.swift */,
 				48E66ACF250A77EA00BCC7AC /* CheckListItem.swift */,
 				48600A8C2506855900926707 /* CheckListView.swift */,
-				48E66AD1250A7A6700BCC7AC /* CheckList.swift */,
+				482432032512CD9800C03D9B /* RowView.swift */,
 				48774B3425117C500094743E /* NewCheckListItemView.swift */,
 				4813EBC8250C60FA00EDB3DF /* EditCheckListItemView.swift */,
+				48E66AD1250A7A6700BCC7AC /* CheckList.swift */,
 				48600A8E2506855D00926707 /* Assets.xcassets */,
 				48600A932506855D00926707 /* LaunchScreen.storyboard */,
 				48600A962506855D00926707 /* Info.plist */,
@@ -281,6 +284,7 @@
 			files = (
 				48600A892506855900926707 /* AppDelegate.swift in Sources */,
 				48600A8B2506855900926707 /* SceneDelegate.swift in Sources */,
+				482432042512CD9800C03D9B /* RowView.swift in Sources */,
 				4813EBC9250C60FA00EDB3DF /* EditCheckListItemView.swift in Sources */,
 				48774B3525117C500094743E /* NewCheckListItemView.swift in Sources */,
 				48E66AD2250A7A6700BCC7AC /* CheckList.swift in Sources */,
