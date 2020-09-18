@@ -23,12 +23,6 @@ struct CheckListView: View {
                 ForEach(checkList.items){ item in
                     RowView(checkListItem: item)
                     .background(Color.white) // This make the entire row clickable
-//                    .onTapGesture {
-//                        if let matchIndex = self.checkList.items.firstIndex(where: {$0.id == item.id}){
-//                            self.checkList.items[matchIndex].isChecked.toggle()
-//                        }
-//                        self.checkList.checkListContent()
-//                    }
                 }
                 .onMove(perform: checkList.moveListItem)
                 .onDelete(perform: checkList.deleteListItem)

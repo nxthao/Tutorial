@@ -9,6 +9,8 @@
 import Foundation
 
 class CheckList: ObservableObject {
+    // Properties
+    // ==========
     @Published var items = [
         CheckListItem(name: "Walk the dog", isChecked: true),
         CheckListItem(name: "Brush my teeth"),
@@ -16,6 +18,23 @@ class CheckList: ObservableObject {
         CheckListItem(name: "Soccer practice", isChecked: true),
         CheckListItem(name: "Eat ice cream", isChecked: true),
     ]
+    
+    
+    // Method
+    // ======
+    init() {
+        print("Document directory's path \(documentsDirectory())")
+        print("Data file path \(dataFilePath())")
+    }
+    
+    func documentsDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL{
+        return documentsDirectory().appendingPathComponent("checklist.plist")
+    }
     
     
     func checkListContent(){
