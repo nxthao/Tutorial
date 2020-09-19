@@ -15,14 +15,13 @@ struct CheckListView: View {
     
     @ObservedObject var checkList = CheckList()
     @State var newCheckListItemViewIsVisible = false
-    
-    // User interface content and layout
-    var body: some View {
+
+    var body : some View{
         NavigationView{
             List{
                 ForEach(checkList.items){ item in
                     RowView(checkListItem: item)
-                    .background(Color.white) // This make the entire row clickable
+                        .background(Color.white) // This make the entire row clickable
                 }
                 .onMove(perform: checkList.moveListItem)
                 .onDelete(perform: checkList.deleteListItem)

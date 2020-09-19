@@ -19,7 +19,6 @@ class CheckList: ObservableObject {
         CheckListItem(name: "Eat ice cream", isChecked: true),
     ]
     
-    
     // Method
     // ======
     init() {
