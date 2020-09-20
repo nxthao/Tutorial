@@ -38,6 +38,7 @@ struct CheckListView: View {
             .navigationBarTitle("To Do list")
             .onAppear(){
                 self.checkList.checkListContent()
+                self.checkList.saveListItems()
             }
         }
         .sheet(isPresented: $newCheckListItemViewIsVisible){
