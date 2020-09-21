@@ -12,7 +12,6 @@ struct CheckListView: View {
     
     // Properties
     // ==========
-    
     @ObservedObject var checkList = CheckList()
     @State var newCheckListItemViewIsVisible = false
 
