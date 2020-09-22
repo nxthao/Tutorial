@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RowView: View {
     @State var checkListItem : CheckListItem
-    
+
     var body: some View {
         NavigationLink(destination: EditCheckListItemView(checkListItem: $checkListItem)){
             HStack{
