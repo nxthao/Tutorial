@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  bullseye
+//  bullseyeUIKit
 //
-//  Created by Thao Nguyen on 9/22/20.
+//  Created by Thao Nguyen on 9/24/20.
 //
 
 import UIKit
