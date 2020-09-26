@@ -12,13 +12,25 @@ class ViewController: UIViewController {
     // Properties
     // ==========
     
-    var currentValue = 0
+    var currentValue = 50
+    var targetValue = 0
+    
+    @IBOutlet weak var slider : UISlider!
     
     // Methods
     // =======
     
+    func startNewRound(){
+        targetValue = Int.random(in: 0...100)
+        currentValue = Int.random(in: 0...100)
+        slider.value = Float(currentValue)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        startNewRound()
+//        currentValue = lroundf(slider.value)
+//        targetValue = Int.random(in: 0...100)
         // Do any additional setup after loading the view.
     }
     @IBAction func showAlert(){
