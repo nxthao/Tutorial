@@ -27,25 +27,23 @@ class ViewController: UIViewController {
     
     func startNewRound(){
         round += 1
-        slider.value = Float(currentValue)
         updateLabels()
         randomCurrentTargetValue()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        startNewRound()
         randomCurrentTargetValue()
-        
     }
     
     func randomCurrentTargetValue(){
+        print("random")
         targetValue = Int.random(in: 0...100)
-        currentValue = Int.random(in: 0...100)
+        targetLabel.text = String(targetValue)
+        slider.value = Float.random(in: 0...100)
     }
     
     func updateLabels(){
-        targetLabel.text = String(targetValue)
         scoreLabel.text = String(totalScore())
         roundLabel.text = String(round)
     }
@@ -61,14 +59,10 @@ class ViewController: UIViewController {
             score += 50
         }
         else{
-            score -= difTargetCurrentValue()
+            score = score - difTargetCurrentValue()
         }
         return score
     }
-    
-//    func alertAction(){
-//        startNewRound()
-//    }
     
     func titleAlert() -> String{
         let title : String
@@ -88,8 +82,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlert(){
-        let message = "The point: \(score)\n" +
-                      "The value of slider: \(currentValue)"
+        let message = "The value of slider: \(currentValue)"
         let alert = UIAlertController(title: titleAlert(), message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Awesome!", style: .default, handler: {_ in self.startNewRound()})
         
