@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var currentValue = 0
     var targetValue = 0
+    // The initilized score is 100
     var score = 100
     var round = 1
     
@@ -25,43 +26,52 @@ class ViewController: UIViewController {
     // Methods
     // =======
     
+    // We need to random number before update label so that label of target value is updated
     func startNewRound(){
         round += 1
+        score += pointForCurrentRound()
+        randomSlidertTargetValue()
         updateLabels()
-        randomCurrentTargetValue()
+    }
+    
+    func startNewGame(){
+        round = 1
+        score = 100
+        randomSlidertTargetValue()
+        updateLabels()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        randomCurrentTargetValue()
+        startNewGame()
     }
     
-    func randomCurrentTargetValue(){
-        print("random")
+    func randomSlidertTargetValue(){
         targetValue = Int.random(in: 0...100)
-        targetLabel.text = String(targetValue)
         slider.value = Float.random(in: 0...100)
     }
     
     func updateLabels(){
-        scoreLabel.text = String(totalScore())
+        targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
         roundLabel.text = String(round)
     }
     
     func difTargetCurrentValue() -> Int{
         return abs(targetValue - currentValue)
     }
-    func totalScore() -> Int{
+    func pointForCurrentRound() -> Int{
+        var point = 0
         if difTargetCurrentValue() == 0{
-            score += 100
+            point = 100
         }
         else if difTargetCurrentValue() == 1{
-            score += 50
+            point = 50
         }
         else{
-            score = score - difTargetCurrentValue()
+            point = -difTargetCurrentValue()
         }
-        return score
+        return point
     }
     
     func titleAlert() -> String{
@@ -93,6 +103,10 @@ class ViewController: UIViewController {
     @IBAction func sliderMoved(_ slider : UISlider){
         currentValue = lroundf(slider.value)
         print("The value of slider is \(slider.value)")
+    }
+    
+    @IBAction func startOver(){
+        startNewGame()
     }
 
 }
