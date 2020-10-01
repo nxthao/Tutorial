@@ -57,9 +57,9 @@ class ViewController: UIViewController {
         let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
         slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
         
-        let trackRightImage = UIImage(named: "SliderTrackRight")!
-        let trackRightResizeable = trackRightImage.resizableImage(withCapInsets: insets)
-        slider.setMinimumTrackImage(trackRightResizeable, for: .normal)
+//        let trackRightImage = UIImage(named: "SliderTrackRight")!
+//        let trackRightResizeable = trackRightImage.resizableImage(withCapInsets: insets)
+//        slider.setMinimumTrackImage(trackRightResizeable, for: .normal)
     }
     
     func randomSlidertTargetValue(){
