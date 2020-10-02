@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     func randomSlidertTargetValue(){
         targetValue = Int.random(in: 0...100)
         slider.value = Float.random(in: 0...100)
+        currentValue = Int(slider.value)
     }
     
     func updateLabels(){

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import WebKit
 
 class AboutViewController: UIViewController {
+    
+    @IBOutlet weak var webView : WKWebView!
     
     @IBAction func close(){
         dismiss(animated: true, completion: nil)
@@ -15,6 +18,13 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let url = Bundle.main.url(forResource: "Bullseye", withExtension: "html")
+        {
+            let request = URLRequest(url: url)
+            print("reuest \(request)")
+            webView.load(request)
+        }
 
         // Do any additional setup after loading the view.
     }
