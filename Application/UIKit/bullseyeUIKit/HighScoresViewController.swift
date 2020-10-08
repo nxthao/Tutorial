@@ -2,7 +2,7 @@
 //  HighScoresViewController.swift
 //  bullseyeUIKit
 //
-//  Created by Thao Nguyen on 10/3/20.
+//  Created by Thao Nguyen on 10/8/20.
 //
 
 import UIKit
@@ -28,18 +28,24 @@ class HighScoresViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HighScoreItem", for: indexPath)
 
-        // Configure the cell...
+        if let label = cell.viewWithTag(1000) as? UILabel{
+            if indexPath.row == 0{
+                label.text = "Thao Nguyen"
+            }
+            else
+            {
+                label.text = "Sleep"
+            }
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48142AFF252623E500A701D4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48142AFE252623E500A701D4 /* AboutViewController.swift */; };
-		485207852528A00F004B3EA2 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485207842528A00F004B3EA2 /* HighScoresViewController.swift */; };
+		48492939252E8BC70096C1A7 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48492938252E8BC70096C1A7 /* HighScoresViewController.swift */; };
 		48CE3896251C10250006CDDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CE3895251C10250006CDDA /* AppDelegate.swift */; };
 		48CE3898251C10250006CDDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CE3897251C10250006CDDA /* SceneDelegate.swift */; };
 		48CE389A251C10250006CDDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CE3899251C10250006CDDA /* ViewController.swift */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		48142AFE252623E500A701D4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		485207842528A00F004B3EA2 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		48492938252E8BC70096C1A7 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		48CE3892251C10250006CDDA /* bullseyeUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bullseyeUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CE3895251C10250006CDDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48CE3897251C10250006CDDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		48CE3889251C10250006CDDA = {
 			isa = PBXGroup;
 			children = (
-				485207842528A00F004B3EA2 /* HighScoresViewController.swift */,
+				48492938252E8BC70096C1A7 /* HighScoresViewController.swift */,
 				48142AFE252623E500A701D4 /* AboutViewController.swift */,
 				48CE3894251C10250006CDDA /* bullseyeUIKit */,
 				48CE38AE251C10280006CDDA /* bullseyeUIKitTests */,
@@ -286,7 +286,7 @@
 				48CE389A251C10250006CDDA /* ViewController.swift in Sources */,
 				48CE38A0251C10250006CDDA /* bullseyeUIKit.xcdatamodeld in Sources */,
 				48CE3896251C10250006CDDA /* AppDelegate.swift in Sources */,
-				485207852528A00F004B3EA2 /* HighScoresViewController.swift in Sources */,
+				48492939252E8BC70096C1A7 /* HighScoresViewController.swift in Sources */,
 				48142AFF252623E500A701D4 /* AboutViewController.swift in Sources */,
 				48CE3898251C10250006CDDA /* SceneDelegate.swift in Sources */,
 			);
