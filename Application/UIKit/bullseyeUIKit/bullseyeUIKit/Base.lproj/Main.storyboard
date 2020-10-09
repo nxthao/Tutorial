@@ -53,43 +53,46 @@
             </objects>
             <point key="canvasLocation" x="590.55472263868069" y="324"/>
         </scene>
-        <!--High Scores View Controller-->
-        <scene sceneID="2Zb-Ax-Yo6">
+        <!--High Score View Controller-->
+        <scene sceneID="wv6-no-p37">
             <objects>
-                <tableViewController id="XEm-BG-Dpa" customClass="HighScoresViewController" customModule="bullseyeUIKit" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VjH-V0-uOh">
+                <viewController id="SJQ-D6-G5m" customClass="HighScoreViewController" customModule="bullseyeUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SST-ZM-YqK">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQ8-9f-oOv">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="6Xp-kJ-ZVO">
+                                        <rect key="frame" x="0.0" y="28" width="667" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Xp-kJ-ZVO" id="lkz-ix-GOq">
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jJs-WH-hxV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoreItem" id="MWx-gE-R7X">
-                                <rect key="frame" x="0.0" y="28" width="667" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MWx-gE-R7X" id="Y61-gO-55s">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxe-vY-dCN">
-                                            <rect key="frame" x="0.0" y="1" width="669" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="XEm-BG-Dpa" id="izM-7X-kFF"/>
-                            <outlet property="delegate" destination="XEm-BG-Dpa" id="O1h-Qq-Jl0"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="b6F-kR-7Fb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fSJ-tG-Jx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="aQ8-9f-oOv" firstAttribute="top" secondItem="jJs-WH-hxV" secondAttribute="top" id="5mo-ZI-Wf8"/>
+                            <constraint firstItem="jJs-WH-hxV" firstAttribute="bottom" secondItem="aQ8-9f-oOv" secondAttribute="bottom" id="Vgb-fZ-40O"/>
+                            <constraint firstItem="aQ8-9f-oOv" firstAttribute="leading" secondItem="jJs-WH-hxV" secondAttribute="leading" id="kLL-n4-hwX"/>
+                            <constraint firstItem="jJs-WH-hxV" firstAttribute="trailing" secondItem="aQ8-9f-oOv" secondAttribute="trailing" id="pLV-Wu-e2O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jZb-28-bBw"/>
+                    <connections>
+                        <outlet property="tableView" destination="aQ8-9f-oOv" id="Mqy-Ap-2YY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4x-BM-ues" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244.527736131934" y="301.60000000000002"/>
+            <point key="canvasLocation" x="1222" y="324"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -226,13 +229,13 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUw-YF-RIr">
-                                <rect key="frame" x="513" y="237" width="36" height="32"/>
+                                <rect key="frame" x="513" y="220" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                                 <size key="titleShadowOffset" width="32" height="32"/>
                                 <state key="normal" title="🏆"/>
                                 <connections>
-                                    <segue destination="XEm-BG-Dpa" kind="show" id="b1X-za-z2D"/>
+                                    <segue destination="SJQ-D6-G5m" kind="show" id="HDn-lz-9eu"/>
                                 </connections>
                             </button>
                         </subviews>

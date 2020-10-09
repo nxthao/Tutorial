@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HighScoresViewController: UITableViewController {
+class HighScoresViewController: UIview {
 
     override func viewDidLoad() {
         super.viewDidLoad()
