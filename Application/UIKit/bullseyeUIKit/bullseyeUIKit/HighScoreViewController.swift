@@ -10,7 +10,8 @@ import UIKit
 class HighScoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView : UITableView!
-    let myData = ["Thao", "Nguyen", "Dao", "Hieu"]
+    let user = ["Thao", "Nguyen", "Dao", "Hieu"]
+    let score = [100, 110, 120, 90]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,38 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // TableView function
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myData.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = myData[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HighScoreItem", for: indexPath)
+        // Add data
+        guard let nameLabel = cell.viewWithTag(10) as? UILabel, let scoreLabel = cell.viewWithTag(20) as? UILabel else{
+            return cell
+        }
+        
+        if indexPath.row == 0{
+            nameLabel.text = user[0]
+            scoreLabel.text = String(score[0])
+        }
+        else if indexPath.row == 1{
+            nameLabel.text = user[1]
+            scoreLabel.text = String(score[1])
+        }
+        else if indexPath.row == 2{
+            nameLabel.text = user[2]
+            scoreLabel.text = String(score[2])
+        }
+        else if indexPath.row == 3{
+            nameLabel.text = user[3]
+            scoreLabel.text = String(score[3])
+        }
         return cell
+    }
+    
+    // MARK: - TableView delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     /*
