@@ -18,6 +18,7 @@
 		48CE38A5251C10280006CDDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48CE38A3251C10280006CDDA /* LaunchScreen.storyboard */; };
 		48CE38B0251C10280006CDDA /* bullseyeUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CE38AF251C10280006CDDA /* bullseyeUIKitTests.swift */; };
 		48CE38BB251C10280006CDDA /* bullseyeUIKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CE38BA251C10280006CDDA /* bullseyeUIKitUITests.swift */; };
+		48D90A80253211F600D88746 /* HighScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90A7F253211F600D88746 /* HighScoreItem.swift */; };
 		48E43B2B25269CA000DFC072 /* Bullseye.html in Resources */ = {isa = PBXBuildFile; fileRef = 48E43B2A25269CA000DFC072 /* Bullseye.html */; };
 		48E43B312526A06500DFC072 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E43B302526A06500DFC072 /* WebKit.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		48CE38B6251C10280006CDDA /* bullseyeUIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bullseyeUIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CE38BA251C10280006CDDA /* bullseyeUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bullseyeUIKitUITests.swift; sourceTree = "<group>"; };
 		48CE38BC251C10280006CDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48D90A7F253211F600D88746 /* HighScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreItem.swift; sourceTree = "<group>"; };
 		48E43B2A25269CA000DFC072 /* Bullseye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Bullseye.html; sourceTree = "<group>"; };
 		48E43B302526A06500DFC072 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 				48CE3895251C10250006CDDA /* AppDelegate.swift */,
 				48CE3897251C10250006CDDA /* SceneDelegate.swift */,
 				4849299D252FE2A60096C1A7 /* HighScoreViewController.swift */,
+				48D90A7F253211F600D88746 /* HighScoreItem.swift */,
 				48CE3899251C10250006CDDA /* ViewController.swift */,
 				48CE389B251C10250006CDDA /* Main.storyboard */,
 				48CE38A1251C10280006CDDA /* Assets.xcassets */,
@@ -289,6 +292,7 @@
 				48142AFF252623E500A701D4 /* AboutViewController.swift in Sources */,
 				48CE3898251C10250006CDDA /* SceneDelegate.swift in Sources */,
 				4849299E252FE2A60096C1A7 /* HighScoreViewController.swift in Sources */,
+				48D90A80253211F600D88746 /* HighScoreItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

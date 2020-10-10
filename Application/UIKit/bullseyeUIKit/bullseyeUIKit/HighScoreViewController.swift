@@ -12,16 +12,37 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView : UITableView!
     let user = ["Thao", "Nguyen", "Dao", "Hieu"]
     let score = [100, 110, 120, 90]
+    var items = [HighScoreItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let item0 = HighScoreItem()
+        item0.name = user[0]
+        item0.score = score[0]
+        items.append(item0)
+        
+        let item1 = HighScoreItem()
+        item1.name = user[1]
+        item1.score = score[1]
+        items.append(item1)
+
+        let item2 = HighScoreItem()
+        item2.name = user[2]
+        item2.score = score[2]
+        items.append(item2)
+        
+        let item3 = HighScoreItem()
+        item3.name = user[3]
+        item3.score = score[3]
+        items.append(item3)
     }
     
     // TableView function
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,23 +52,20 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
         }
         
-        if indexPath.row == 0{
-            nameLabel.text = user[0]
-            scoreLabel.text = String(score[0])
-        }
-        else if indexPath.row == 1{
-            nameLabel.text = user[1]
-            scoreLabel.text = String(score[1])
-        }
-        else if indexPath.row == 2{
-            nameLabel.text = user[2]
-            scoreLabel.text = String(score[2])
-        }
-        else if indexPath.row == 3{
-            nameLabel.text = user[3]
-            scoreLabel.text = String(score[3])
-        }
+        // Take object at current indexPath
+        let item = items[indexPath.row]
+        
+        nameLabel.text = item.name
+        scoreLabel.text = String(item.score)
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        items.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
     // MARK: - TableView delegate

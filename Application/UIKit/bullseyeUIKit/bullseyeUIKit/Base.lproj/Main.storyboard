@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LBv-oc-YBM">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -51,9 +51,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaQ-EF-ro8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590.55472263868069" y="324"/>
+            <point key="canvasLocation" x="1381.2593703148427" y="324"/>
         </scene>
-        <!--High Score View Controller-->
+        <!--High Scores-->
         <scene sceneID="wv6-no-p37">
             <objects>
                 <viewController id="SJQ-D6-G5m" customClass="HighScoreViewController" customModule="bullseyeUIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQ8-9f-oOv">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HighScoreItem" id="6Xp-kJ-ZVO">
@@ -101,16 +101,18 @@
                             <constraint firstItem="jJs-WH-hxV" firstAttribute="trailing" secondItem="aQ8-9f-oOv" secondAttribute="trailing" id="pLV-Wu-e2O"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jZb-28-bBw"/>
+                    <navigationItem key="navigationItem" title="High Scores" id="YME-C8-fzy">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="82t-Qm-PpB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aQ8-9f-oOv" id="Mqy-Ap-2YY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4x-BM-ues" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220.2398800599701" y="324"/>
+            <point key="canvasLocation" x="2010.9445277361322" y="324"/>
         </scene>
-        <!--View Controller-->
+        <!--Bullseye-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="bullseyeUIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -258,6 +260,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Bullseye" id="TPD-Qx-t9D"/>
                     <connections>
                         <outlet property="roundLabel" destination="p2M-5a-BSc" id="Mx7-eB-CXE"/>
                         <outlet property="scoreLabel" destination="Txb-xa-Yu6" id="hqX-ZZ-0fb"/>
@@ -266,6 +269,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700.29985007496259" y="324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YrH-Vl-poQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LBv-oc-YBM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cnl-g1-hVT">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iNk-Jn-LNv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9G-MY-5Lw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-90.404797601199405" y="324"/>
         </scene>
