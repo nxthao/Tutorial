@@ -102,7 +102,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="High Scores" id="YME-C8-fzy">
-                        <barButtonItem key="rightBarButtonItem" title="Reset" id="82t-Qm-PpB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="82t-Qm-PpB">
+                            <connections>
+                                <action selector="resetHighScore" destination="SJQ-D6-G5m" id="WWj-4t-afZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aQ8-9f-oOv" id="Mqy-Ap-2YY"/>

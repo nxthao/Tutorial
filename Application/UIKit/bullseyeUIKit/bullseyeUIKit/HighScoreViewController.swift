@@ -18,7 +18,10 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        resetHighScore()
+    }
+    
+    @IBAction func resetHighScore(){
         let item0 = HighScoreItem()
         item0.name = user[0]
         item0.score = score[0]
@@ -28,7 +31,7 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
         item1.name = user[1]
         item1.score = score[1]
         items.append(item1)
-
+        
         let item2 = HighScoreItem()
         item2.name = user[2]
         item2.score = score[2]
@@ -38,6 +41,8 @@ class HighScoreViewController: UIViewController, UITableViewDelegate, UITableVie
         item3.name = user[3]
         item3.score = score[3]
         items.append(item3)
+        
+        tableView.reloadData()
     }
     
     // TableView function
