@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MyMap
 //
-//  Created by Thao Nguyen on 10/13/20.
+//  Created by Thao Nguyen on 10/14/20.
 //
 
 import UIKit
