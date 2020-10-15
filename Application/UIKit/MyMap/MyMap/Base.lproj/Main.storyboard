@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-Uf-vmd">
-                                <rect key="frame" x="70" y="189" width="62.5" height="20.5"/>
+                                <rect key="frame" x="70" y="189" width="105" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                                 <rect key="frame" x="120" y="298" width="135" height="30"/>
                                 <state key="normal" title="Tag Location"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Longtitude value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zak-AZ-tcc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Longtitude value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zak-AZ-tcc">
                                 <rect key="frame" x="198" y="127" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -83,18 +83,20 @@
                         <viewLayoutGuide key="safeArea" id="yCT-IV-Ioa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="flb-Vs-I1J" firstAttribute="top" secondItem="iW4-sm-19I" secondAttribute="bottom" constant="150" id="1ZL-bk-0QN"/>
+                            <constraint firstItem="flb-Vs-I1J" firstAttribute="top" secondItem="iW4-sm-19I" secondAttribute="bottom" constant="50" id="1ZL-bk-0QN"/>
                             <constraint firstItem="Zak-AZ-tcc" firstAttribute="leading" secondItem="qUl-Ab-Iqj" secondAttribute="trailing" constant="40" id="2wZ-nS-hui"/>
                             <constraint firstItem="Ofz-eQ-MZi" firstAttribute="top" secondItem="yCT-IV-Ioa" secondAttribute="top" constant="16" id="3kh-sX-fPf"/>
                             <constraint firstItem="qUl-Ab-Iqj" firstAttribute="top" secondItem="ge7-Ng-ZcL" secondAttribute="bottom" constant="30" id="4Wr-uL-9pX"/>
                             <constraint firstItem="qUl-Ab-Iqj" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="50" id="6V4-tO-6Vq"/>
                             <constraint firstItem="iW4-sm-19I" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="120" id="9it-qQ-fCt"/>
+                            <constraint firstItem="iW4-sm-19I" firstAttribute="top" secondItem="5Xx-Uf-vmd" secondAttribute="bottom" constant="70" id="Apz-VV-InM"/>
                             <constraint firstItem="yCT-IV-Ioa" firstAttribute="trailing" secondItem="Ofz-eQ-MZi" secondAttribute="trailing" constant="16" id="B2b-Tc-mIO"/>
-                            <constraint firstItem="ge7-Ng-ZcL" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="50" id="BfO-5z-P2r"/>
+                            <constraint firstItem="ge7-Ng-ZcL" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="60" id="BfO-5z-P2r"/>
+                            <constraint firstItem="yCT-IV-Ioa" firstAttribute="trailing" secondItem="5Xx-Uf-vmd" secondAttribute="trailing" constant="200" id="BfY-kn-gED"/>
                             <constraint firstItem="5Xx-Uf-vmd" firstAttribute="top" secondItem="qUl-Ab-Iqj" secondAttribute="bottom" constant="40" id="Bt1-vR-tmL"/>
                             <constraint firstItem="yCT-IV-Ioa" firstAttribute="trailing" secondItem="Zak-AZ-tcc" secondAttribute="trailing" constant="50" id="JzP-Wf-GgP"/>
                             <constraint firstItem="yCT-IV-Ioa" firstAttribute="trailing" secondItem="cgi-6h-0xe" secondAttribute="trailing" constant="50" id="Lry-a1-Ha9"/>
-                            <constraint firstItem="yCT-IV-Ioa" firstAttribute="bottom" secondItem="flb-Vs-I1J" secondAttribute="bottom" constant="110" id="R4F-oB-eMU"/>
+                            <constraint firstItem="yCT-IV-Ioa" firstAttribute="bottom" secondItem="flb-Vs-I1J" secondAttribute="bottom" constant="30" id="R4F-oB-eMU"/>
                             <constraint firstItem="flb-Vs-I1J" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="120" id="RFk-g2-9Iz"/>
                             <constraint firstItem="iW4-sm-19I" firstAttribute="top" secondItem="Zak-AZ-tcc" secondAttribute="bottom" constant="40" id="TF9-AU-8fo"/>
                             <constraint firstItem="Ofz-eQ-MZi" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="16" id="VKU-AB-Y9v"/>
@@ -103,7 +105,7 @@
                             <constraint firstItem="5Xx-Uf-vmd" firstAttribute="leading" secondItem="yCT-IV-Ioa" secondAttribute="leading" constant="70" id="fMG-FE-hds"/>
                             <constraint firstItem="cgi-6h-0xe" firstAttribute="leading" secondItem="ge7-Ng-ZcL" secondAttribute="trailing" constant="40" id="hgV-3v-MiC"/>
                             <constraint firstItem="Zak-AZ-tcc" firstAttribute="leading" secondItem="qUl-Ab-Iqj" secondAttribute="trailing" constant="40" id="jFs-sW-nzQ"/>
-                            <constraint firstItem="flb-Vs-I1J" firstAttribute="top" secondItem="iW4-sm-19I" secondAttribute="bottom" constant="150" id="kfo-3f-wt5"/>
+                            <constraint firstItem="flb-Vs-I1J" firstAttribute="top" secondItem="iW4-sm-19I" secondAttribute="bottom" constant="50" id="kfo-3f-wt5"/>
                             <constraint firstItem="cgi-6h-0xe" firstAttribute="top" secondItem="Ofz-eQ-MZi" secondAttribute="bottom" constant="40" id="kun-ix-m1f"/>
                             <constraint firstItem="ge7-Ng-ZcL" firstAttribute="top" secondItem="Ofz-eQ-MZi" secondAttribute="bottom" constant="40" id="p6I-Kb-ZKC"/>
                             <constraint firstItem="yCT-IV-Ioa" firstAttribute="trailing" secondItem="iW4-sm-19I" secondAttribute="trailing" constant="120" id="p88-6T-GGu"/>
