@@ -18,6 +18,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var getButton : UIButton!
     
     let locationManager = CLLocationManager()
+    let authstatus = CLLocationManager().authorizationStatus
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,15 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     
     // MARK:- Action
     @IBAction func getLocation(){
+        if authstatus == .notDetermined{
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        if authstatus == .denied || authstatus == .restricted{
+            showLocationServiceDeniedAlert()
+            return
+        }
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
@@ -39,6 +49,24 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("Did update new location \(newLocation)")
+    }
+    
+    // MARK:- Helper method
+    func showLocationServiceDeniedAlert(){
+        let alert = UIAlertController(
+            title: "GPS service is disable",
+            message: "Please turn on the GPS service in setting!",
+            preferredStyle: .alert
+        )
+        
+        let action = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 
