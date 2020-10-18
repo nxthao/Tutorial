@@ -10,6 +10,7 @@ import CoreLocation
 
 class CurrentLocationViewController : UIViewController, CLLocationManagerDelegate {
 
+    // MARK:- Property
     @IBOutlet weak var messageLabel : UILabel!
     @IBOutlet weak var latitudeLabel : UILabel!
     @IBOutlet weak var longitudeLabel : UILabel!
@@ -20,9 +21,14 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     let locationManager = CLLocationManager()
     let authstatus = CLLocationManager().authorizationStatus
     
+    var location : CLLocation?
+    
+    var updatingLocation = false
+    var lastLocationError : Error?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateLabel()
     }
     
     // MARK:- Action
@@ -36,19 +42,63 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             showLocationServiceDeniedAlert()
             return
         }
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
+        if updatingLocation{
+            stopLocationManager()
+        }
+        else
+        {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
+        updateLabel()
     }
     
     // MARK:- CCLocationManager
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("did Fail with error \(error)")
+        if (error as NSError).code == CLError.locationUnknown.rawValue{
+            return
+        }
+        lastLocationError = error
+        stopLocationManager()
+        updateLabel()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("Did update new location \(newLocation)")
+        
+        if newLocation.timestamp.timeIntervalSinceNow < -5{
+            return
+        }
+        if newLocation.horizontalAccuracy < 0{
+            return
+        }
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy{
+            lastLocationError = nil
+            location = newLocation
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
+                print("Done")
+                stopLocationManager()
+            }
+        }
+        updateLabel()
+    }
+    
+    func startLocationManager(){
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            updatingLocation = true
+        }
+    }
+    
+    func stopLocationManager(){
+        locationManager.stopUpdatingLocation()
+        locationManager.delegate = nil
+        updatingLocation = false
     }
     
     // MARK:- Helper method
@@ -68,6 +118,52 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
+    func updateLabel(){
+        if let location = location{
+            latitudeLabel.text = String(format: "%0.8f", location.coordinate.latitude)
+            longitudeLabel.text = String(format: "%0.8f", location.coordinate.longitude)
+            tagButton.isHidden = true
+            messageLabel.text = ""
+        }
+        else{
+            latitudeLabel.text = ""
+            longitudeLabel.text = ""
+            tagButton.isHidden = false
+            addressLabel.text = ""
+            let statusMessage : String
+            if let error = lastLocationError as NSError?{
+                if error.domain == kCLErrorDomain &&
+                    error.code == CLError.denied.rawValue{
+                    statusMessage = "GPS service is disable"
+                }
+                else{
+                    statusMessage = "Error getting location"
+                }
+            }
+            else if !CLLocationManager.locationServicesEnabled(){
+                statusMessage = "GPS service is disable"
+            }
+            else if updatingLocation{
+                statusMessage = "Searching..."
+            }
+            else{
+                statusMessage = "Please tab \"Get Location\" button!"
+            }
+            messageLabel.text = statusMessage
+        }
+        configureGetButton()
+    }
+    
+    func configureGetButton(){
+        if updatingLocation {
+            getButton.setTitle("Stop", for: .normal)
+        }
+        else{
+            getButton.setTitle("Get Location", for: .normal)
+        }
+    }
+
 }
 
 class SecondViewController : UIViewController {
