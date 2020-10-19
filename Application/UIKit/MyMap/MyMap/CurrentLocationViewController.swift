@@ -9,8 +9,6 @@ import UIKit
 import CoreLocation
 
 class CurrentLocationViewController : UIViewController, CLLocationManagerDelegate {
-
-    // MARK:- Property
     @IBOutlet weak var messageLabel : UILabel!
     @IBOutlet weak var latitudeLabel : UILabel!
     @IBOutlet weak var longitudeLabel : UILabel!
@@ -27,8 +25,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     var lastLocationError : Error?
     
     // geocoding variable
-    let geocoder : CLGeocoder
-    var placeMark : CLPlacemark?
+    let geocoder = CLGeocoder()
+    var placemark : CLPlacemark?
     var performingRevertGeocoding = false
     var lastGeocodingError : Error?
     
@@ -93,17 +91,26 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         
         if !performingRevertGeocoding{
             print("Going to Geocoding")
-            performingRevertGeocoding = true
             geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
                 placeMarks, error in
-                if let error = error{
-                    print("Reverse geoding error \(error.localizedDescription)")
-                    return
+//                if let error = error{
+//                    print("Reverse geoding error \(error.localizedDescription)")
+//                    return
+//                }
+//                if let places = placeMarks{
+//                    print("Found place: \(places)")
+                self.lastGeocodingError = error
+                if error == nil, let p = placeMarks, !p.isEmpty{
+                    self.placemark = p.last!
                 }
-                if let places = placeMarks{
-                    print("Found place: \(places)")
+                else{
+                    self.placemark = nil
                 }
-            })
+                
+                self.performingRevertGeocoding = true
+                self.updateLabel()
+                }
+            )
         }
     }
     
