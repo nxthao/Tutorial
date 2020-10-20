@@ -93,12 +93,6 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             print("Going to Geocoding")
             geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
                 placeMarks, error in
-//                if let error = error{
-//                    print("Reverse geoding error \(error.localizedDescription)")
-//                    return
-//                }
-//                if let places = placeMarks{
-//                    print("Found place: \(places)")
                 self.lastGeocodingError = error
                 if error == nil, let p = placeMarks, !p.isEmpty{
                     self.placemark = p.last!
@@ -153,6 +147,19 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             longitudeLabel.text = String(format: "%0.8f", location.coordinate.longitude)
             tagButton.isHidden = true
             messageLabel.text = ""
+            
+            if let placemark = placemark {
+                addressLabel.text = string(from: placemark)
+            }
+            else if performingRevertGeocoding{
+                addressLabel.text = "Searching for address"
+            }
+            else if lastGeocodingError != nil{
+                addressLabel.text = "Error finding address"
+            }
+            else{
+                addressLabel.text = "No address found"
+            }
         }
         else{
             latitudeLabel.text = ""
@@ -181,6 +188,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             messageLabel.text = statusMessage
         }
         configureGetButton()
+        
+        
     }
     
     func configureGetButton(){
@@ -190,6 +199,29 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         else{
             getButton.setTitle("Get Location", for: .normal)
         }
+    }
+    
+    // Convert placemark to string
+    func string(from placemark : CLPlacemark) -> String{
+        var line1 = ""
+        if let s = placemark.subThoroughfare{
+            line1 += s
+        }
+        if let s = placemark.thoroughfare{
+            line1 += s
+        }
+        
+        var line2 = ""
+        if let s = placemark.locality{
+            line2 += s
+        }
+        if let s = placemark.administrativeArea{
+            line2 += s
+        }
+        if let s = placemark.postalCode{
+            line2 += s
+        }
+        return line1 + "\n" + line2
     }
 
 }
