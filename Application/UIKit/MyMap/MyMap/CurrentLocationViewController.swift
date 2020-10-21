@@ -30,6 +30,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     var performingRevertGeocoding = false
     var lastGeocodingError : Error?
     
+    var timer : Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabel()
@@ -79,32 +81,49 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         if newLocation.horizontalAccuracy < 0{
             return
         }
+        
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = location{
+            distance = newLocation.distance(from: location)
+        }
+        
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy{
             lastLocationError = nil
             location = newLocation
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
                 print("Done")
                 stopLocationManager()
+                if distance > 0 {
+                    performingRevertGeocoding = false
+                }
+            }
+            updateLabel()
+            
+            if !performingRevertGeocoding{
+                print("Going to Geocoding")
+                geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
+                    placeMarks, error in
+                    self.lastGeocodingError = error
+                    if error == nil, let p = placeMarks, !p.isEmpty{
+                        self.placemark = p.last!
+                    }
+                    else{
+                        self.placemark = nil
+                    }
+                    
+                    self.performingRevertGeocoding = true
+                    self.updateLabel()
+                    }
+                )
             }
         }
-        updateLabel()
-        
-        if !performingRevertGeocoding{
-            print("Going to Geocoding")
-            geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
-                placeMarks, error in
-                self.lastGeocodingError = error
-                if error == nil, let p = placeMarks, !p.isEmpty{
-                    self.placemark = p.last!
-                }
-                else{
-                    self.placemark = nil
-                }
-                
-                self.performingRevertGeocoding = true
-                self.updateLabel()
-                }
-            )
+        else if distance < 1{
+            let timesInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+            if timesInterval > 10{
+                print("**** Force done")
+                stopLocationManager()
+                updateLabel()
+            }
         }
     }
     
@@ -114,6 +133,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+            
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -121,6 +142,9 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         locationManager.stopUpdatingLocation()
         locationManager.delegate = nil
         updatingLocation = false
+        if let timer = timer{
+            timer.invalidate()
+        }
     }
     
     // MARK:- Helper method
@@ -205,25 +229,33 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     func string(from placemark : CLPlacemark) -> String{
         var line1 = ""
         if let s = placemark.subThoroughfare{
-            line1 += s
+            line1 += s + " "
         }
         if let s = placemark.thoroughfare{
-            line1 += s
+            line1 += s + " "
         }
         
         var line2 = ""
         if let s = placemark.locality{
-            line2 += s
+            line2 += s + " "
         }
         if let s = placemark.administrativeArea{
-            line2 += s
+            line2 += s + " "
         }
         if let s = placemark.postalCode{
-            line2 += s
+            line2 += s + " "
         }
         return line1 + "\n" + line2
     }
-
+    
+    @objc func didTimeOut(){
+        print("Time out")
+        if location == nil{
+            stopLocationManager()
+            lastLocationError = NSError(domain: "MyLocationErrorDomain", code: 1, userInfo: nil)
+            updateLabel()
+        }
+    }
 }
 
 class SecondViewController : UIViewController {

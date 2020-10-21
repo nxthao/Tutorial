@@ -73,10 +73,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-Uf-vmd">
-                                <rect key="frame" x="87.5" y="260" width="200" height="70"/>
+                                <rect key="frame" x="87.5" y="260" width="200" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IGv-g5-sx2"/>
-                                    <constraint firstAttribute="height" constant="70" id="e1v-a1-s3m"/>
+                                    <constraint firstAttribute="height" constant="100" id="e1v-a1-s3m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW4-sm-19I">
-                                <rect key="frame" x="143.5" y="380" width="88" height="50"/>
+                                <rect key="frame" x="143.5" y="410" width="88" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2fi-iK-MsT"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="DXT-1a-WwQ"/>
