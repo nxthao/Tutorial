@@ -9,6 +9,7 @@ import UIKit
 
 class LocationDetailViewController: UITableViewController {
 
+    let numberOfRowAtSection = [2, 1, 4]
     // Outet variable
     @IBOutlet weak var descriptionTextView : UILabel!
     @IBOutlet weak var categoryLabel : UILabel!
@@ -31,12 +32,16 @@ class LocationDetailViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        var rows = 0
+        if section < numberOfRowAtSection.count{
+            rows = numberOfRowAtSection[section]
+        }
+        return rows
     }
 
     // MARK:- Actions
