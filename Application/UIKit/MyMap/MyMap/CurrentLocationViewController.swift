@@ -266,6 +266,17 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
+    
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationDetailViewController
+            controller.coordinate.latitude = location!.coordinate.latitude
+            controller.coordinate.longitude = location!.coordinate.longitude
+//            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+        }
+    }
 }
 
 class SecondViewController : UIViewController {

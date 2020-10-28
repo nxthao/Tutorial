@@ -6,8 +6,19 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocationDetailViewController: UITableViewController {
+    
+    typealias CLLocationDegrees = Double
+    
+    struct CLLocationCoordinate2D {
+        var latitude : CLLocationDegrees
+        var longitude : CLLocationDegrees
+    }
+    
+    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var placemark : CLPlacemark?
 
     let numberOfRowAtSection = [2, 1, 4]
     // Outet variable

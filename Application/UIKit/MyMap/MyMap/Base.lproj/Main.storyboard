@@ -110,7 +110,7 @@
                                 </constraints>
                                 <state key="normal" title="Tag Location"/>
                                 <connections>
-                                    <segue destination="SJN-4y-O6T" kind="show" id="T6S-ON-rBn"/>
+                                    <segue destination="SJN-4y-O6T" kind="show" identifier="TagLocation" id="T6S-ON-rBn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -368,6 +368,7 @@
                         <outlet property="addressLabel" destination="6Ae-ef-eHc" id="Zt4-3P-z2g"/>
                         <outlet property="categoryLabel" destination="Ep2-Mf-nCq" id="8TX-eA-Fe9"/>
                         <outlet property="dateLabel" destination="Psu-w0-NMP" id="3jm-xq-Z9B"/>
+                        <outlet property="descriptionTextView" destination="XVW-KT-gDd" id="KKd-hN-xjx"/>
                         <outlet property="latitudeLabel" destination="lPb-f7-2iN" id="1QH-ma-dFw"/>
                         <outlet property="longitudeLabel" destination="Dur-Ht-gCW" id="JEm-xW-x8z"/>
                     </connections>
