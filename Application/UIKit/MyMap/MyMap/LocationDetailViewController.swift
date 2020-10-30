@@ -8,6 +8,14 @@
 import UIKit
 import CoreLocation
 
+private let dateFormatter : DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    print("formatter")
+    return formatter
+}()
+
 class LocationDetailViewController: UITableViewController {
     
     typealias CLLocationDegrees = Double
@@ -31,7 +39,18 @@ class LocationDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
+        longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
+        
+        if let placemark = placemark{
+            addressLabel.text = string(from: placemark)
+        }
+        else{
+            addressLabel.text = "No address"
+        }
 
+        dateLabel.text = format(date: Date())
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,6 +83,33 @@ class LocationDetailViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    // MARK:- Helper methods
+    func string(from placemark : CLPlacemark) -> String{
+        var text = " "
+        if let s = placemark.subThoroughfare{
+            text += s + " "
+        }
+        if let s = placemark.thoroughfare{
+            text += s + ", "
+        }
+        if let s = placemark.locality{
+            text += s + ", "
+        }
+        if let s = placemark.administrativeArea{
+            text += s + ", "
+        }
+        if let s = placemark.postalCode{
+            text += s + ", "
+        }
+        if let s = placemark.country{
+            text += s + ", "
+        }
+        return text
+    }
+    
+    func format(date : Date) -> String{
+        return dateFormatter.string(from: date)
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
