@@ -169,7 +169,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         if let location = location{
             latitudeLabel.text = String(format: "%0.8f", location.coordinate.latitude)
             longitudeLabel.text = String(format: "%0.8f", location.coordinate.longitude)
-            tagButton.isHidden = true
+            tagButton.isHidden = false
             messageLabel.text = ""
             
             if let placemark = placemark {
@@ -188,7 +188,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         else{
             latitudeLabel.text = ""
             longitudeLabel.text = ""
-            tagButton.isHidden = false
+            tagButton.isHidden = true
             addressLabel.text = ""
             let statusMessage : String
             if let error = lastLocationError as NSError?{
@@ -245,7 +245,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
         if let s = placemark.postalCode{
             line2 += s + " "
         }
-        return line1 + "\n" + line2
+        return line1 + line2
     }
     
     @objc func didTimeOut(){
