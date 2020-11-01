@@ -29,6 +29,9 @@ class LocationDetailViewController: UITableViewController {
     var placemark : CLPlacemark?
 
     let numberOfRowAtSection = [2, 1, 4]
+    
+    var categoryName = "No Category"
+    
     // Outet variable
     @IBOutlet weak var descriptionTextView : UILabel!
     @IBOutlet weak var categoryLabel : UILabel!
@@ -40,6 +43,7 @@ class LocationDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryLabel.text = categoryName
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
         
@@ -81,6 +85,12 @@ class LocationDetailViewController: UITableViewController {
     
     @IBAction func cancel(){
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func categoryPickerDidPickCategory(_ segue : UIStoryboardSegue){
+        let controller = segue.source as! CategoryPickerViewController
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
     }
     
     // MARK:- Helper methods
@@ -155,14 +165,16 @@ class LocationDetailViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickCategory"{
+            let controller = segue.destination as! CategoryPickerViewController
+            controller.selectedCategoryName = categoryName
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
