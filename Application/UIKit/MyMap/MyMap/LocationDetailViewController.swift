@@ -55,6 +55,10 @@ class LocationDetailViewController: UITableViewController {
         }
 
         dateLabel.text = format(date: Date())
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -119,6 +123,32 @@ class LocationDetailViewController: UITableViewController {
     
     func format(date : Date) -> String{
         return dateFormatter.string(from: date)
+    }
+    
+    @objc func hideKeyboard(_ gestureReconizer : UIGestureRecognizer){
+        let point = gestureReconizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0{
+            return
+        }
+        descriptionTextView.resignFirstResponder()
+    }
+    
+    // MARK:- table view
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1{
+            return indexPath
+        }
+        else{
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
