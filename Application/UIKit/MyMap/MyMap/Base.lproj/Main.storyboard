@@ -171,17 +171,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="( Description goes here)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fj-uW-ccr">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="(Description)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FmT-Vb-zdI">
                                                     <rect key="frame" x="16" y="10" width="343" height="68"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="2Fj-uW-ccr" secondAttribute="trailing" constant="16" id="QPD-zM-wcy"/>
-                                                <constraint firstAttribute="bottom" secondItem="2Fj-uW-ccr" secondAttribute="bottom" constant="10" id="eh2-hQ-gdw"/>
-                                                <constraint firstItem="2Fj-uW-ccr" firstAttribute="leading" secondItem="bnc-Hs-Gv7" secondAttribute="leading" constant="16" id="ikg-VG-pQS"/>
-                                                <constraint firstItem="2Fj-uW-ccr" firstAttribute="top" secondItem="bnc-Hs-Gv7" secondAttribute="top" constant="10" id="oJa-pK-KX6"/>
+                                                <constraint firstAttribute="bottom" secondItem="FmT-Vb-zdI" secondAttribute="bottom" constant="10" id="4Zr-3h-l9B"/>
+                                                <constraint firstItem="FmT-Vb-zdI" firstAttribute="top" secondItem="bnc-Hs-Gv7" secondAttribute="top" constant="10" id="PvP-H8-kiy"/>
+                                                <constraint firstItem="FmT-Vb-zdI" firstAttribute="leading" secondItem="bnc-Hs-Gv7" secondAttribute="leading" constant="16" id="XN8-dZ-91F"/>
+                                                <constraint firstAttribute="trailing" secondItem="FmT-Vb-zdI" secondAttribute="trailing" constant="16" id="mbZ-C2-elB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -367,7 +369,7 @@
                         <outlet property="addressLabel" destination="6yL-RJ-ifT" id="Rhk-P8-Cfk"/>
                         <outlet property="categoryLabel" destination="qef-JO-U51" id="9NA-EC-f36"/>
                         <outlet property="dateLabel" destination="hib-av-aVF" id="LYn-Bs-Esd"/>
-                        <outlet property="descriptionTextView" destination="XVW-KT-gDd" id="Plo-DU-mdX"/>
+                        <outlet property="descriptionTextView" destination="FmT-Vb-zdI" id="mfQ-6X-EO2"/>
                         <outlet property="latitudeLabel" destination="qzs-pN-Cii" id="hhK-X1-ngb"/>
                         <outlet property="longitudeLabel" destination="kj7-tn-bWK" id="UeV-yB-CB2"/>
                     </connections>
@@ -457,6 +459,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

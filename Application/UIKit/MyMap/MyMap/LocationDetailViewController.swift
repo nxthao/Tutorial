@@ -31,9 +31,10 @@ class LocationDetailViewController: UITableViewController {
     let numberOfRowAtSection = [2, 1, 4]
     
     var categoryName = "No Category"
+//    var descriptionValue = ""
     
     // Outet variable
-    @IBOutlet weak var descriptionTextView : UILabel!
+    @IBOutlet weak var descriptionTextView : UITextView!
     @IBOutlet weak var categoryLabel : UILabel!
     @IBOutlet weak var latitudeLabel : UILabel!
     @IBOutlet weak var longitudeLabel : UILabel!
@@ -42,7 +43,7 @@ class LocationDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        descriptionTextView.text = ""
         categoryLabel.text = categoryName
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
