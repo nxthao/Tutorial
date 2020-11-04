@@ -17,6 +17,7 @@
 		481D717C25373CA500BF7422 /* MyMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D717B25373CA500BF7422 /* MyMapTests.swift */; };
 		481D718725373CA500BF7422 /* MyMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D718625373CA500BF7422 /* MyMapUITests.swift */; };
 		482468EA254E538400823A5E /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482468E9254E538400823A5E /* CategoryPickerViewController.swift */; };
+		486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486DD84E25521CBE00E08FE6 /* HudView.swift */; };
 		48B4DD3E2541061D00959885 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		481D718625373CA500BF7422 /* MyMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapUITests.swift; sourceTree = "<group>"; };
 		481D718825373CA500BF7422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		482468E9254E538400823A5E /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		486DD84E25521CBE00E08FE6 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,12 +107,13 @@
 		481D716025373CA300BF7422 /* MyMap */ = {
 			isa = PBXGroup;
 			children = (
+				481D716725373CA300BF7422 /* Main.storyboard */,
 				481D716125373CA300BF7422 /* AppDelegate.swift */,
 				481D716325373CA300BF7422 /* SceneDelegate.swift */,
-				481D716525373CA300BF7422 /* CurrentLocationViewController.swift */,
-				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
 				482468E9254E538400823A5E /* CategoryPickerViewController.swift */,
-				481D716725373CA300BF7422 /* Main.storyboard */,
+				481D716525373CA300BF7422 /* CurrentLocationViewController.swift */,
+				486DD84E25521CBE00E08FE6 /* HudView.swift */,
+				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
 				481D716D25373CA400BF7422 /* Assets.xcassets */,
 				481D716F25373CA400BF7422 /* LaunchScreen.storyboard */,
 				481D717225373CA400BF7422 /* Info.plist */,
@@ -272,6 +275,7 @@
 				481D716225373CA300BF7422 /* AppDelegate.swift in Sources */,
 				481D716C25373CA300BF7422 /* MyMap.xcdatamodeld in Sources */,
 				481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */,
+				486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */,
 				48B4DD3E2541061D00959885 /* LocationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
