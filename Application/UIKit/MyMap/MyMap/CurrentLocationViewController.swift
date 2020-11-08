@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController : UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var messageLabel : UILabel!
@@ -31,6 +32,9 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     var lastGeocodingError : Error?
     
     var timer : Timer?
+    
+    // Core data
+    var managedObjectContext : NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -274,6 +278,9 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             controller.coordinate.latitude = location!.coordinate.latitude
             controller.coordinate.longitude = location!.coordinate.longitude
             controller.placemark = placemark
+            
+            // Assign data model to Location detail view controller
+            controller.managedObjectContext = managedObjectContext
         }
     }
 }

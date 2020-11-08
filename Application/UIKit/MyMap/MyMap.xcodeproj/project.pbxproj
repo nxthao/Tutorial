@@ -11,7 +11,6 @@
 		481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D716325373CA300BF7422 /* SceneDelegate.swift */; };
 		481D716625373CA300BF7422 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D716525373CA300BF7422 /* CurrentLocationViewController.swift */; };
 		481D716925373CA300BF7422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481D716725373CA300BF7422 /* Main.storyboard */; };
-		481D716C25373CA300BF7422 /* MyMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 481D716A25373CA300BF7422 /* MyMap.xcdatamodeld */; };
 		481D716E25373CA400BF7422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481D716D25373CA400BF7422 /* Assets.xcassets */; };
 		481D717125373CA400BF7422 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481D716F25373CA400BF7422 /* LaunchScreen.storyboard */; };
 		481D717C25373CA500BF7422 /* MyMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D717B25373CA500BF7422 /* MyMapTests.swift */; };
@@ -48,7 +47,6 @@
 		481D716325373CA300BF7422 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		481D716525373CA300BF7422 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		481D716825373CA300BF7422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		481D716B25373CA300BF7422 /* MyMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMap.xcdatamodel; sourceTree = "<group>"; };
 		481D716D25373CA400BF7422 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		481D717025373CA400BF7422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		481D717225373CA400BF7422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +93,8 @@
 		481D715525373CA300BF7422 = {
 			isa = PBXGroup;
 			children = (
+				4872B3E22556F83A00949AC5 /* Location+CoreDataClass.swift */,
+				4872B3E32556F83A00949AC5 /* Location+CoreDataProperties.swift */,
 				481D716025373CA300BF7422 /* MyMap */,
 				481D717A25373CA500BF7422 /* MyMapTests */,
 				481D718525373CA500BF7422 /* MyMapUITests */,
@@ -124,12 +124,9 @@
 				489D67EF2554BD0A0017DB8F /* Function.swift */,
 				486DD84E25521CBE00E08FE6 /* HudView.swift */,
 				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
-				4872B3E22556F83A00949AC5 /* Location+CoreDataClass.swift */,
-				4872B3E32556F83A00949AC5 /* Location+CoreDataProperties.swift */,
 				481D716D25373CA400BF7422 /* Assets.xcassets */,
 				481D716F25373CA400BF7422 /* LaunchScreen.storyboard */,
 				481D717225373CA400BF7422 /* Info.plist */,
-				481D716A25373CA300BF7422 /* MyMap.xcdatamodeld */,
 			);
 			path = MyMap;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				481D716625373CA300BF7422 /* CurrentLocationViewController.swift in Sources */,
 				4872B3E52556F83B00949AC5 /* Location+CoreDataProperties.swift in Sources */,
 				481D716225373CA300BF7422 /* AppDelegate.swift in Sources */,
-				481D716C25373CA300BF7422 /* MyMap.xcdatamodeld in Sources */,
 				481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */,
 				486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */,
 				485A8DC52555A760002FBA2E /* DataModel.xcdatamodeld in Sources */,
@@ -627,16 +623,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		481D716A25373CA300BF7422 /* MyMap.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				481D716B25373CA300BF7422 /* MyMap.xcdatamodel */,
-			);
-			currentVersion = 481D716B25373CA300BF7422 /* MyMap.xcdatamodel */;
-			path = MyMap.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		485A8DC32555A760002FBA2E /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
