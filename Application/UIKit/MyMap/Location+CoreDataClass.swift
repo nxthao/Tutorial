@@ -2,7 +2,7 @@
 //  Location+CoreDataClass.swift
 //  MyMap
 //
-//  Created by Thao Nguyen on 11/7/20.
+//  Created by Thao Nguyen on 11/8/20.
 //
 //
 

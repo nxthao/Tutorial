@@ -35,6 +35,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     
     // Core data
     var managedObjectContext : NSManagedObjectContext!
+    var testString : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -278,6 +279,20 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             controller.coordinate.latitude = location!.coordinate.latitude
             controller.coordinate.longitude = location!.coordinate.longitude
             controller.placemark = placemark
+            
+            if managedObjectContext != nil{
+                print("managedObjectContext is not nil")
+            }
+            else{
+                print("managedObjectContext is nil")
+            }
+            
+            if testString != nil{
+                print("testString: \(testString)")
+            }
+            else{
+                print("teststring is nil")
+            }
             
             // Assign data model to Location detail view controller
             controller.managedObjectContext = managedObjectContext
