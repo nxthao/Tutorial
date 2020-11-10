@@ -115,18 +115,18 @@
 		481D716025373CA300BF7422 /* MyMap */ = {
 			isa = PBXGroup;
 			children = (
-				481D716725373CA300BF7422 /* Main.storyboard */,
-				48BE14EC255851F6002583A4 /* MyMap.xcdatamodeld */,
 				481D716125373CA300BF7422 /* AppDelegate.swift */,
-				481D716325373CA300BF7422 /* SceneDelegate.swift */,
+				481D716D25373CA400BF7422 /* Assets.xcassets */,
 				482468E9254E538400823A5E /* CategoryPickerViewController.swift */,
 				481D716525373CA300BF7422 /* CurrentLocationViewController.swift */,
 				489D67EF2554BD0A0017DB8F /* Function.swift */,
 				486DD84E25521CBE00E08FE6 /* HudView.swift */,
-				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
-				481D716D25373CA400BF7422 /* Assets.xcassets */,
-				481D716F25373CA400BF7422 /* LaunchScreen.storyboard */,
 				481D717225373CA400BF7422 /* Info.plist */,
+				481D716F25373CA400BF7422 /* LaunchScreen.storyboard */,
+				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
+				481D716725373CA300BF7422 /* Main.storyboard */,
+				48BE14EC255851F6002583A4 /* MyMap.xcdatamodeld */,
+				481D716325373CA300BF7422 /* SceneDelegate.swift */,
 			);
 			path = MyMap;
 			sourceTree = "<group>";
