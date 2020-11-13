@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4810F0DA255E54E9009324EA /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810F0D9255E54E9009324EA /* LocationsViewController.swift */; };
 		481D716225373CA300BF7422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D716125373CA300BF7422 /* AppDelegate.swift */; };
 		481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D716325373CA300BF7422 /* SceneDelegate.swift */; };
 		481D716625373CA300BF7422 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D716525373CA300BF7422 /* CurrentLocationViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4810F0D9255E54E9009324EA /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		481D715E25373CA300BF7422 /* MyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		481D716125373CA300BF7422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		481D716325373CA300BF7422 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				481D716F25373CA400BF7422 /* LaunchScreen.storyboard */,
 				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
 				481D716725373CA300BF7422 /* Main.storyboard */,
+				4810F0D9255E54E9009324EA /* LocationsViewController.swift */,
 				48BE14EC255851F6002583A4 /* MyMap.xcdatamodeld */,
 				481D716325373CA300BF7422 /* SceneDelegate.swift */,
 			);
@@ -283,6 +286,7 @@
 				481D716625373CA300BF7422 /* CurrentLocationViewController.swift in Sources */,
 				481D716225373CA300BF7422 /* AppDelegate.swift in Sources */,
 				481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */,
+				4810F0DA255E54E9009324EA /* LocationsViewController.swift in Sources */,
 				48BE14F52558531F002583A4 /* Location+CoreDataProperties.swift in Sources */,
 				486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */,
 				48B4DD3E2541061D00959885 /* LocationDetailViewController.swift in Sources */,

@@ -444,18 +444,39 @@
         <!--Root View Controller-->
         <scene sceneID="6zn-Gs-JQg">
             <objects>
-                <tableViewController id="IkE-S5-esE" sceneMemberID="viewController">
+                <tableViewController id="IkE-S5-esE" customClass="LocationsViewController" customModule="MyMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w5v-2K-nM4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xQ2-Fe-bor">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="xQ2-Fe-bor">
+                                <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQ2-Fe-bor" id="u8A-5x-S2g">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCd-f4-IgT">
+                                            <rect key="frame" x="15" y="5" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTN-d8-O2t">
+                                            <rect key="frame" x="15" y="31" width="53" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XTN-d8-O2t" secondAttribute="bottom" constant="5" id="PmQ-Ka-LHK"/>
+                                        <constraint firstItem="XTN-d8-O2t" firstAttribute="top" secondItem="BCd-f4-IgT" secondAttribute="bottom" constant="5" id="Vuv-0Z-goX"/>
+                                        <constraint firstItem="XTN-d8-O2t" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="15" id="ZVv-Ni-PGX"/>
+                                        <constraint firstItem="BCd-f4-IgT" firstAttribute="top" secondItem="u8A-5x-S2g" secondAttribute="top" constant="5" id="bua-tC-16w"/>
+                                        <constraint firstItem="BCd-f4-IgT" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="15" id="mMt-A9-7kN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
