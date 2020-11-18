@@ -11,15 +11,22 @@ import CoreLocation
 
 class LocationsViewController: UITableViewController {
     var managedObjectContext : NSManagedObjectContext!
-
+    // Location variable
+    var locations = [Location]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let fetchRequest = NSFetchRequest<Location>()
+        let entity = Location.entity()
+        fetchRequest.entity = entity
+        let sortDescription = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescription]
+        do {
+            locations = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            fatalCoreDataError(error)
+        }
     }
 
     // MARK: - Table view data source
@@ -31,17 +38,35 @@ class LocationsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return locations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
 
+        let location = locations[indexPath.row]
         let descriptionLabel = cell.viewWithTag(100) as! UILabel
         descriptionLabel.text = "If you can see this"
         
         let addressLabel = cell.viewWithTag(101) as! UILabel
         addressLabel.text = "Then it works!"
+        
+        if let placeMark = location.placemark{
+            var text = ""
+            if let s = placeMark.subThoroughfare{
+                text += s + " "
+            }
+            if let s = placeMark.thoroughfare{
+                text += s + ", "
+            }
+            if let s = placeMark.locality{
+                text += s
+            }
+            addressLabel.text = text
+        }
+        else{
+            addressLabel.text = ""
+        }
 
         return cell
     }

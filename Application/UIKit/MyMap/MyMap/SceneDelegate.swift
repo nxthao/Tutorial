@@ -51,10 +51,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let tabViewController = tabController.viewControllers
         {
-            let navController = tabViewController[0] as! UINavigationController
-            let controller = navController.viewControllers.first as! CurrentLocationViewController
-            controller.managedObjectContext = managedObjectContext
-            controller.testString = "Thao Nguyen"
+            // Tag tab
+            let navController1 = tabViewController[0] as! UINavigationController
+            let controller1 = navController1.viewControllers.first as! CurrentLocationViewController
+            controller1.managedObjectContext = managedObjectContext
+            controller1.testString = "Thao Nguyen"
+            
+            // Location tab
+            let navController2 = tabViewController[1] as! UINavigationController
+            let controller2 = navController2.viewControllers.first as! LocationsViewController
+            controller2.managedObjectContext = managedObjectContext
         }
         
         print(applicationDocumentsDirectory)
