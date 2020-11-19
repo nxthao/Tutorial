@@ -298,6 +298,7 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             controller.managedObjectContext = managedObjectContext
         }
     }
+    
 }
 
 class SecondViewController : UIViewController {

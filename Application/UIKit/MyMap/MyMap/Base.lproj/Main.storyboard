@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yf5-pF-f0c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yf5-pF-f0c">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -441,16 +441,16 @@
             </objects>
             <point key="canvasLocation" x="233" y="-510"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Locations-->
         <scene sceneID="6zn-Gs-JQg">
             <objects>
-                <tableViewController id="IkE-S5-esE" customClass="LocationsViewController" customModule="MyMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Locations" id="IkE-S5-esE" customClass="LocationsViewController" customModule="MyMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w5v-2K-nM4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="xQ2-Fe-bor">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="xQ2-Fe-bor" customClass="LocationCell" customModule="MyMap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQ2-Fe-bor" id="u8A-5x-S2g">
@@ -478,6 +478,11 @@
                                         <constraint firstItem="BCd-f4-IgT" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="15" id="mMt-A9-7kN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="XTN-d8-O2t" id="g1L-sk-e49"/>
+                                    <outlet property="decriptionLabel" destination="BCd-f4-IgT" id="ORy-Fq-klk"/>
+                                    <segue destination="SJN-4y-O6T" kind="show" identifier="EditLocation" id="fND-4l-PSS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -485,7 +490,7 @@
                             <outlet property="delegate" destination="IkE-S5-esE" id="hrn-Uh-8cm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="OoS-8P-PAV"/>
+                    <navigationItem key="navigationItem" title="Locations" id="OoS-8P-PAV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ad-fz-n50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -509,6 +514,9 @@
             <point key="canvasLocation" x="228" y="259"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fND-4l-PSS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

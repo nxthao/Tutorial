@@ -42,32 +42,16 @@ class LocationsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
 
         let location = locations[indexPath.row]
-        let descriptionLabel = cell.viewWithTag(100) as! UILabel
-        descriptionLabel.text = "If you can see this"
-        
-        let addressLabel = cell.viewWithTag(101) as! UILabel
-        addressLabel.text = "Then it works!"
-        
-        if let placeMark = location.placemark{
-            var text = ""
-            if let s = placeMark.subThoroughfare{
-                text += s + " "
-            }
-            if let s = placeMark.thoroughfare{
-                text += s + ", "
-            }
-            if let s = placeMark.locality{
-                text += s
-            }
-            addressLabel.text = text
-        }
-        else{
-            addressLabel.text = ""
-        }
-
+        cell.configure(for: location)
+//        let descriptionLabel = cell.viewWithTag(100) as! UILabel
+//        descriptionLabel.text = "If you can see this"
+//        
+//        let addressLabel = cell.viewWithTag(101) as! UILabel
+//        addressLabel.text = "Then it works!"
+    
         return cell
     }
 
@@ -106,14 +90,17 @@ class LocationsViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditLocation"{
+            let controller = segue.destination as! LocationDetailViewController
+            controller.managedObjectContext = managedObjectContext
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                let location = locations[indexPath.row]
+                controller.locationToEdit = location
+            }
+        }
     }
-    */
 
 }
