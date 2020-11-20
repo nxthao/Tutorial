@@ -9,24 +9,44 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class LocationsViewController: UITableViewController {
+class LocationsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     var managedObjectContext : NSManagedObjectContext!
     // Location variable
-    var locations = [Location]()
+//    var locations = [Location]()
+    lazy var fetchedResultsController : NSFetchedResultsController<Location> = {
+        let fetchRequest = NSFetchRequest<Location>()
+        
+        let entity = Location.entity()
+        fetchRequest.entity = entity
+        
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchRequest.fetchBatchSize = 20
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Locations"
+        )
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let fetchRequest = NSFetchRequest<Location>()
-        let entity = Location.entity()
-        fetchRequest.entity = entity
-        let sortDescription = NSSortDescriptor(key: "date", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescription]
-        do {
-            locations = try managedObjectContext.fetch(fetchRequest)
-        } catch {
-            fatalCoreDataError(error)
-        }
+        performFetch()
+//        let fetchRequest = NSFetchRequest<Location>()
+//        let entity = Location.entity()
+//        fetchRequest.entity = entity
+//        let sortDescription = NSSortDescriptor(key: "date", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescription]
+//        do {
+//            locations = try managedObjectContext.fetch(fetchRequest)
+//        } catch {
+//            fatalCoreDataError(error)
+//        }
+    }
+    
+    deinit{
+        fetchedResultsController.delegate = nil
     }
 
     // MARK: - Table view data source
@@ -38,19 +58,15 @@ class LocationsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return locations.count
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
 
-        let location = locations[indexPath.row]
+        let location = fetchedResultsController.object(at: indexPath)
         cell.configure(for: location)
-//        let descriptionLabel = cell.viewWithTag(100) as! UILabel
-//        descriptionLabel.text = "If you can see this"
-//        
-//        let addressLabel = cell.viewWithTag(101) as! UILabel
-//        addressLabel.text = "Then it works!"
     
         return cell
     }
@@ -97,10 +113,18 @@ class LocationsViewController: UITableViewController {
             controller.managedObjectContext = managedObjectContext
             
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
-                let location = locations[indexPath.row]
+                let location = fetchedResultsController.object(at: indexPath)
                 controller.locationToEdit = location
             }
         }
     }
-
+    
+    // MARK: - Helper methods
+    func performFetch(){
+        do {
+            try fetchedResultsController.performFetch()
+        } catch{
+            fatalCoreDataError(error)
+        }
+    }
 }
