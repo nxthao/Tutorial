@@ -19,7 +19,7 @@ class LocationsViewController: UITableViewController, NSFetchedResultsController
         let entity = Location.entity()
         fetchRequest.entity = entity
         
-        let sort1 = NSSortDescriptor(key: "caregory", ascending: true)
+        let sort1 = NSSortDescriptor(key: "category", ascending: true)
         let sort2 = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sort1, sort2]
         

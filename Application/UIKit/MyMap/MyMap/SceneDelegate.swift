@@ -61,6 +61,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navController2 = tabViewController[1] as! UINavigationController
             let controller2 = navController2.viewControllers.first as! LocationsViewController
             controller2.managedObjectContext = managedObjectContext
+            
+            // Map tab
+            let navController3 = tabViewController[2] as! UINavigationController
+            let controller3 = navController3.viewControllers.first as! MapViewController
+            controller3.managedObjectContext = managedObjectContext
         }
         
         print(applicationDocumentsDirectory)
