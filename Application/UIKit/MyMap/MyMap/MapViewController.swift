@@ -14,7 +14,22 @@ class MapViewController : UIViewController{
     @IBOutlet weak var mapView : MKMapView!
     var locations = [Location]()
     
-    var managedObjectContext : NSManagedObjectContext!
+    var managedObjectContext : NSManagedObjectContext! {
+        didSet{
+            NotificationCenter.default.addObserver(
+                forName: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                object: managedObjectContext, queue: OperationQueue.main) { notification in
+                if self.isViewLoaded{
+                    self.updateLocations()
+                    if let dictionary = notification.userInfo{
+                        print(dictionary[NSInsertedObjectsKey])
+                        print(dictionary[NSUpdatedObjectsKey])
+                        print(dictionary[NSDeletedObjectsKey])
+                    }
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +103,22 @@ class MapViewController : UIViewController{
                 region = MKCoordinateRegion(center: center, span: span)
         }
         return mapView.regionThatFits(region)
+    }
+    
+    @objc func showLocationDetails(_ sender: UIButton){
+        performSegue(withIdentifier: "EditLocation", sender: sender)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditLocation"{
+            let controller = segue.destination as! LocationDetailViewController
+            controller.managedObjectContext = managedObjectContext
+            
+            let button = sender as! UIButton
+            let location = locations[button.tag]
+            controller.locationToEdit = location
+        }
     }
 }
 

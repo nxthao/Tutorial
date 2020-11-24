@@ -524,6 +524,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uS4-23-ruw">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TYh-UR-d0q" id="Gox-VA-haW"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZOb-mB-wmf"/>
@@ -549,6 +552,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="uS4-23-ruw" id="LGd-Lh-Cgz"/>
+                        <outlet property="view" destination="f3k-qv-PXt" id="yaP-RZ-mcL"/>
+                        <segue destination="SJN-4y-O6T" kind="show" identifier="EditLocation" id="9Rf-5J-fIC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUJ-Xr-yXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -576,7 +581,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q1j-K0-6VG"/>
+        <segue reference="9Rf-5J-fIC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
