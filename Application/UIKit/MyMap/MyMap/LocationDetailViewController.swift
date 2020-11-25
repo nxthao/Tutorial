@@ -19,6 +19,10 @@ private let dateFormatter : DateFormatter = {
 
 class LocationDetailViewController: UITableViewController {
     
+    // MARK: - OutLet variable
+    @IBOutlet weak var imageView : UIImageView!
+    @IBOutlet weak var addPhotoLabel : UILabel! 
+    
     typealias CLLocationDegrees = Double
     
     struct CLLocationCoordinate2D {
@@ -32,6 +36,7 @@ class LocationDetailViewController: UITableViewController {
     let numberOfRowAtSection = [2, 1, 4]
     var categoryName = "No Category"
     var date = Date()
+    var image : UIImage?
     
     var locationToEdit : Location?{
         didSet{
@@ -182,6 +187,12 @@ class LocationDetailViewController: UITableViewController {
         descriptionTextView.resignFirstResponder()
     }
     
+    func show(image: UIImage){
+        imageView.image = image
+        imageView.isHidden = false
+        addPhotoLabel.text = ""
+    }
+    
     // MARK:- table view
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -197,6 +208,7 @@ class LocationDetailViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
         } else if indexPath.section == 1 && indexPath.row == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
             pickPhoto()
         }
     }
@@ -301,7 +313,8 @@ extension LocationDetailViewController : UIImagePickerControllerDelegate, UINavi
         let actLibrary = UIAlertAction(
             title: "Choose from Library",
             style: .default,
-            handler: { _ in self.pickPhoto()}
+            handler: { _ in self.choosePhotoFromLibrary(
+            )}
         )
         alert.addAction(actLibrary)
         
@@ -310,6 +323,13 @@ extension LocationDetailViewController : UIImagePickerControllerDelegate, UINavi
     
     // MARK: - Image picker delegates
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        
+        if let theImage = image{
+            show(image: theImage)
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     

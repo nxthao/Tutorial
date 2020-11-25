@@ -215,12 +215,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UdI-RS-96o">
+                                                    <rect key="frame" x="96" y="0.0" width="252" height="44"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="unf-O7-4RY" firstAttribute="top" secondItem="8Nf-ta-IPg" secondAttribute="topMargin" id="9LR-nF-CfE"/>
+                                                <constraint firstAttribute="bottom" secondItem="UdI-RS-96o" secondAttribute="bottom" id="IaS-cg-7s3"/>
                                                 <constraint firstItem="unf-O7-4RY" firstAttribute="leading" secondItem="8Nf-ta-IPg" secondAttribute="leadingMargin" id="Mwe-vk-xcF"/>
+                                                <constraint firstAttribute="trailing" secondItem="UdI-RS-96o" secondAttribute="trailing" id="R4x-SY-zV5"/>
                                                 <constraint firstItem="unf-O7-4RY" firstAttribute="centerY" secondItem="8Nf-ta-IPg" secondAttribute="centerY" id="YZ4-83-x4h"/>
+                                                <constraint firstItem="UdI-RS-96o" firstAttribute="leading" secondItem="unf-O7-4RY" secondAttribute="trailing" id="dao-VD-YrT"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="unf-O7-4RY" secondAttribute="trailing" constant="20" symbolic="YES" id="qKZ-m3-e3N"/>
+                                                <constraint firstItem="UdI-RS-96o" firstAttribute="top" secondItem="8Nf-ta-IPg" secondAttribute="top" id="xEX-IU-Jst"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -350,10 +357,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="unf-O7-4RY" id="kjD-DV-bMM"/>
                         <outlet property="addressLabel" destination="6yL-RJ-ifT" id="Rhk-P8-Cfk"/>
                         <outlet property="categoryLabel" destination="qef-JO-U51" id="9NA-EC-f36"/>
                         <outlet property="dateLabel" destination="hib-av-aVF" id="LYn-Bs-Esd"/>
                         <outlet property="descriptionTextView" destination="FmT-Vb-zdI" id="mfQ-6X-EO2"/>
+                        <outlet property="imageView" destination="UdI-RS-96o" id="7gv-vu-SEy"/>
                         <outlet property="latitudeLabel" destination="qzs-pN-Cii" id="hhK-X1-ngb"/>
                         <outlet property="longitudeLabel" destination="kj7-tn-bWK" id="UeV-yB-CB2"/>
                     </connections>
