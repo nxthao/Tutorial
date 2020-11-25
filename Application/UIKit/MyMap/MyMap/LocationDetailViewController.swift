@@ -21,7 +21,8 @@ class LocationDetailViewController: UITableViewController {
     
     // MARK: - OutLet variable
     @IBOutlet weak var imageView : UIImageView!
-    @IBOutlet weak var addPhotoLabel : UILabel! 
+    @IBOutlet weak var addPhotoLabel : UILabel!
+    @IBOutlet weak var imageHight : NSLayoutConstraint!
     
     typealias CLLocationDegrees = Double
     
@@ -191,6 +192,10 @@ class LocationDetailViewController: UITableViewController {
         imageView.image = image
         imageView.isHidden = false
         addPhotoLabel.text = ""
+        
+        // Aligh the image
+        imageHight.constant = 260
+        tableView.reloadData()
     }
     
     // MARK:- table view

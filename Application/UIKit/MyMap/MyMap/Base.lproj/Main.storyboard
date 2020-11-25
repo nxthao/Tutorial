@@ -217,6 +217,9 @@
                                                 </label>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UdI-RS-96o">
                                                     <rect key="frame" x="96" y="0.0" width="252" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="qzq-sd-Xde"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -362,6 +365,7 @@
                         <outlet property="categoryLabel" destination="qef-JO-U51" id="9NA-EC-f36"/>
                         <outlet property="dateLabel" destination="hib-av-aVF" id="LYn-Bs-Esd"/>
                         <outlet property="descriptionTextView" destination="FmT-Vb-zdI" id="mfQ-6X-EO2"/>
+                        <outlet property="imageHight" destination="qzq-sd-Xde" id="baT-eV-fnX"/>
                         <outlet property="imageView" destination="UdI-RS-96o" id="7gv-vu-SEy"/>
                         <outlet property="latitudeLabel" destination="qzs-pN-Cii" id="hhK-X1-ngb"/>
                         <outlet property="longitudeLabel" destination="kj7-tn-bWK" id="UeV-yB-CB2"/>
@@ -590,7 +594,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Rf-5J-fIC"/>
+        <segue reference="q1j-K0-6VG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
