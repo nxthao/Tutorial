@@ -39,6 +39,8 @@ class LocationDetailViewController: UITableViewController {
     var date = Date()
     var image : UIImage?
     
+    var observer : Any!
+    
     var locationToEdit : Location?{
         didSet{
             if let location = locationToEdit{
@@ -90,6 +92,7 @@ class LocationDetailViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        listenForBackgroundNotification()
     }
 
     // MARK: - Table view data source
@@ -196,6 +199,28 @@ class LocationDetailViewController: UITableViewController {
         // Aligh the image
         imageHight.constant = 260
         tableView.reloadData()
+    }
+    
+    func listenForBackgroundNotification(){
+        observer = NotificationCenter.default.addObserver(
+            forName: UIApplication.didEnterBackgroundNotification,
+            object: nil,
+            queue: OperationQueue.main){
+            [weak self] _ in
+            if let weakSelf = self{
+                if weakSelf.presentedViewController != nil{
+                    weakSelf.dismiss(animated: false, completion: nil)
+                }
+                
+                weakSelf.descriptionTextView.resignFirstResponder()
+            }
+
+        }
+    }
+    
+    deinit {
+        print("*** deinit \(self)")
+        NotificationCenter.default.removeObserver(observer!)
     }
     
     // MARK:- table view
