@@ -214,7 +214,6 @@ class LocationDetailViewController: UITableViewController {
                 
                 weakSelf.descriptionTextView.resignFirstResponder()
             }
-
         }
     }
     

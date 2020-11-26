@@ -23,6 +23,7 @@ extension Location {
     @NSManaged public var locationDescription: String
     @NSManaged public var date: Date
     @NSManaged public var placemark: CLPlacemark?
+    @NSManaged public var photoID : NSNumber?
 
 }
 
