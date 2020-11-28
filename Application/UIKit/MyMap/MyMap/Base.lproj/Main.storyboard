@@ -472,29 +472,40 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCd-f4-IgT">
-                                            <rect key="frame" x="15" y="5" width="88" height="21"/>
+                                            <rect key="frame" x="80" y="5" width="88" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTN-d8-O2t">
-                                            <rect key="frame" x="15" y="31" width="53" height="17"/>
+                                            <rect key="frame" x="80" y="31" width="53" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z9n-Yt-ZQA">
+                                            <rect key="frame" x="8" y="8" width="52" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="PGl-cV-1AZ"/>
+                                                <constraint firstAttribute="width" constant="52" id="Wb2-CL-iyk"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="z9n-Yt-ZQA" secondAttribute="bottom" constant="8" id="DVb-28-snO"/>
+                                        <constraint firstItem="z9n-Yt-ZQA" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="8" id="MG8-zh-3qI"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XTN-d8-O2t" secondAttribute="bottom" constant="5" id="PmQ-Ka-LHK"/>
+                                        <constraint firstItem="z9n-Yt-ZQA" firstAttribute="top" secondItem="u8A-5x-S2g" secondAttribute="top" constant="8" id="S40-vx-lmr"/>
                                         <constraint firstItem="XTN-d8-O2t" firstAttribute="top" secondItem="BCd-f4-IgT" secondAttribute="bottom" constant="5" id="Vuv-0Z-goX"/>
-                                        <constraint firstItem="XTN-d8-O2t" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="15" id="ZVv-Ni-PGX"/>
                                         <constraint firstItem="BCd-f4-IgT" firstAttribute="top" secondItem="u8A-5x-S2g" secondAttribute="top" constant="5" id="bua-tC-16w"/>
-                                        <constraint firstItem="BCd-f4-IgT" firstAttribute="leading" secondItem="u8A-5x-S2g" secondAttribute="leading" constant="15" id="mMt-A9-7kN"/>
+                                        <constraint firstItem="BCd-f4-IgT" firstAttribute="leading" secondItem="z9n-Yt-ZQA" secondAttribute="trailing" constant="20" id="ifI-HP-1wX"/>
+                                        <constraint firstItem="XTN-d8-O2t" firstAttribute="leading" secondItem="z9n-Yt-ZQA" secondAttribute="trailing" constant="20" id="sTQ-Iw-15l"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="XTN-d8-O2t" id="g1L-sk-e49"/>
-                                    <outlet property="decriptionLabel" destination="BCd-f4-IgT" id="ORy-Fq-klk"/>
+                                    <outlet property="decriptionLabel" destination="BCd-f4-IgT" id="x7k-to-Dd5"/>
+                                    <outlet property="photoImageView" destination="z9n-Yt-ZQA" id="KQN-8h-5AO"/>
                                     <segue destination="SJN-4y-O6T" kind="show" identifier="EditLocation" id="fND-4l-PSS"/>
                                 </connections>
                             </tableViewCell>
@@ -508,7 +519,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ad-fz-n50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="259"/>
+            <point key="canvasLocation" x="1149.5999999999999" y="258.62068965517244"/>
         </scene>
         <!--Locations-->
         <scene sceneID="MnO-hy-fiC">
@@ -594,7 +605,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q1j-K0-6VG"/>
+        <segue reference="fND-4l-PSS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

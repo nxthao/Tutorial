@@ -81,7 +81,7 @@
          </CommandLineArgument>
       </CommandLineArguments>
       <LocationScenarioReference
-         identifier = "Sydney, Australia"
+         identifier = "New York, NY, USA"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>
