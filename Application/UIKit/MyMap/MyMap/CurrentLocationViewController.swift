@@ -16,6 +16,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var addressLabel : UILabel!
     @IBOutlet weak var tagButton : UIButton!
     @IBOutlet weak var getButton : UIButton!
+    @IBOutlet weak var latitudeTextLabel : UILabel!
+    @IBOutlet weak var longitudeTextLabel : UILabel!
     
     let locationManager = CLLocationManager()
     let authstatus = CLLocationManager().authorizationStatus
@@ -176,6 +178,8 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             longitudeLabel.text = String(format: "%0.8f", location.coordinate.longitude)
             tagButton.isHidden = false
             messageLabel.text = ""
+            latitudeTextLabel.isHidden = false
+            longitudeTextLabel.isHidden = false
             
             if let placemark = placemark {
                 addressLabel.text = string(from: placemark)
@@ -195,6 +199,9 @@ class CurrentLocationViewController : UIViewController, CLLocationManagerDelegat
             longitudeLabel.text = ""
             tagButton.isHidden = true
             addressLabel.text = ""
+            latitudeTextLabel.isHidden = true
+            longitudeTextLabel.isHidden = true
+            
             let statusMessage : String
             if let error = lastLocationError as NSError?{
                 if error.domain == kCLErrorDomain &&

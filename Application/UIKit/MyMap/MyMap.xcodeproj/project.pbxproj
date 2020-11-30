@@ -18,6 +18,8 @@
 		481D718725373CA500BF7422 /* MyMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481D718625373CA500BF7422 /* MyMapUITests.swift */; };
 		482468EA254E538400823A5E /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482468E9254E538400823A5E /* CategoryPickerViewController.swift */; };
 		4846375725734C16007DF337 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846375625734C16007DF337 /* String+AddText.swift */; };
+		4846375C25739AB7007DF337 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846375B25739AB7007DF337 /* MyTabBarController.swift */; };
+		4846376125739BC0007DF337 /* MyImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846376025739BC0007DF337 /* MyImagePickerController.swift */; };
 		48629929256A567A0031659B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48629928256A567A0031659B /* MapKit.framework */; };
 		4862992E256A5F5B0031659B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4862992D256A5F5B0031659B /* MapViewController.swift */; };
 		4867618A2565755F00AC0F95 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486761892565755F00AC0F95 /* LocationCell.swift */; };
@@ -65,6 +67,8 @@
 		481D718825373CA500BF7422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		482468E9254E538400823A5E /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		4846375625734C16007DF337 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
+		4846375B25739AB7007DF337 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		4846376025739BC0007DF337 /* MyImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImagePickerController.swift; sourceTree = "<group>"; };
 		48629928256A567A0031659B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4862992D256A5F5B0031659B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		486761892565755F00AC0F95 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */,
 				4810F0D9255E54E9009324EA /* LocationsViewController.swift */,
 				481D716725373CA300BF7422 /* Main.storyboard */,
+				4846375B25739AB7007DF337 /* MyTabBarController.swift */,
+				4846376025739BC0007DF337 /* MyImagePickerController.swift */,
 				4862992D256A5F5B0031659B /* MapViewController.swift */,
 				48BE14EC255851F6002583A4 /* MyMap.xcdatamodeld */,
 				481D716325373CA300BF7422 /* SceneDelegate.swift */,
@@ -309,12 +315,14 @@
 				482468EA254E538400823A5E /* CategoryPickerViewController.swift in Sources */,
 				481D716625373CA300BF7422 /* CurrentLocationViewController.swift in Sources */,
 				481D716225373CA300BF7422 /* AppDelegate.swift in Sources */,
+				4846376125739BC0007DF337 /* MyImagePickerController.swift in Sources */,
 				481D716425373CA300BF7422 /* SceneDelegate.swift in Sources */,
 				4810F0DA255E54E9009324EA /* LocationsViewController.swift in Sources */,
 				48BE14F52558531F002583A4 /* Location+CoreDataProperties.swift in Sources */,
 				4862992E256A5F5B0031659B /* MapViewController.swift in Sources */,
 				48EAC81A25722448008C36FC /* UIImage+Resize.swift in Sources */,
 				4867618A2565755F00AC0F95 /* LocationCell.swift in Sources */,
+				4846375C25739AB7007DF337 /* MyTabBarController.swift in Sources */,
 				486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */,
 				48B4DD3E2541061D00959885 /* LocationDetailViewController.swift in Sources */,
 				48BE14F42558531F002583A4 /* Location+CoreDataClass.swift in Sources */,

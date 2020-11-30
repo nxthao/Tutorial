@@ -176,26 +176,6 @@ class LocationDetailViewController: UITableViewController {
     
     // MARK:- Helper methods
     func string(from placemark : CLPlacemark) -> String{
-//        var text = " "
-//        if let s = placemark.subThoroughfare{
-//            text += s + " "
-//        }
-//        if let s = placemark.thoroughfare{
-//            text += s + ", "
-//        }
-//        if let s = placemark.locality{
-//            text += s + ", "
-//        }
-//        if let s = placemark.administrativeArea{
-//            text += s + ", "
-//        }
-//        if let s = placemark.postalCode{
-//            text += s + ", "
-//        }
-//        if let s = placemark.country{
-//            text += s + ", "
-//        }
-//        return text
         var text = ""
         text.add(text: placemark.subThoroughfare)
         text.add(text: placemark.thoroughfare, separatedBy: ", ")
@@ -269,6 +249,12 @@ class LocationDetailViewController: UITableViewController {
             pickPhoto()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let selection = UIView(frame: CGRect.zero)
+        selection.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
+        cell.selectedBackgroundView = selection
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -331,10 +317,11 @@ class LocationDetailViewController: UITableViewController {
 extension LocationDetailViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     // MARK: - Image helper methods
     func takePhotoWithCamera(){
-        let imagePicker = UIImagePickerController()
+        let imagePicker = MyImagePickerController()
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        imagePicker.view.tintColor = view.tintColor
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -343,6 +330,7 @@ extension LocationDetailViewController : UIImagePickerControllerDelegate, UINavi
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+        imagePicker.view.tintColor = view.tintColor
         present(imagePicker, animated: true, completion: nil)
     }
     
