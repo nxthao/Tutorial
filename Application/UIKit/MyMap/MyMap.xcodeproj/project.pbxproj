@@ -24,6 +24,7 @@
 		4862992E256A5F5B0031659B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4862992D256A5F5B0031659B /* MapViewController.swift */; };
 		4867618A2565755F00AC0F95 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486761892565755F00AC0F95 /* LocationCell.swift */; };
 		486DD84F25521CBE00E08FE6 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486DD84E25521CBE00E08FE6 /* HudView.swift */; };
+		486EAC272575C9E10069F904 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 486EAC262575C9E10069F904 /* Sound */; };
 		489D67F02554BD0A0017DB8F /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D67EF2554BD0A0017DB8F /* Function.swift */; };
 		48B4DD3E2541061D00959885 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */; };
 		48BE14EE255851F6002583A4 /* MyMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48BE14EC255851F6002583A4 /* MyMap.xcdatamodeld */; };
@@ -73,6 +74,7 @@
 		4862992D256A5F5B0031659B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		486761892565755F00AC0F95 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		486DD84E25521CBE00E08FE6 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		486EAC262575C9E10069F904 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		489D67EF2554BD0A0017DB8F /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		48B4DD3D2541061D00959885 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		48BE14ED255851F6002583A4 /* MyMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMap.xcdatamodel; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		481D716025373CA300BF7422 /* MyMap */ = {
 			isa = PBXGroup;
 			children = (
+				486EAC262575C9E10069F904 /* Sound */,
 				481D716125373CA300BF7422 /* AppDelegate.swift */,
 				481D716D25373CA400BF7422 /* Assets.xcassets */,
 				482468E9254E538400823A5E /* CategoryPickerViewController.swift */,
@@ -287,6 +290,7 @@
 			files = (
 				481D717125373CA400BF7422 /* LaunchScreen.storyboard in Resources */,
 				481D716E25373CA400BF7422 /* Assets.xcassets in Resources */,
+				486EAC272575C9E10069F904 /* Sound in Resources */,
 				481D716925373CA300BF7422 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
