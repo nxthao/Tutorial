@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jOs-73-HbG">
+                            <searchBar contentMode="redraw" placeholder="App name, book, artist, song, album." translatesAutoresizingMaskIntoConstraints="NO" id="jOs-73-HbG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -37,6 +37,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J4T-lf-GoV" secondAttribute="trailing" id="rZK-w2-Jol"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="jOs-73-HbG" id="N9g-3h-nh9"/>
+                        <outlet property="tableView" destination="J4T-lf-GoV" id="e6d-yQ-RM0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
