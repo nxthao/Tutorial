@@ -38,7 +38,7 @@ extension StoreSearchViewController : UITableViewDelegate , UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "SearchResultCell"
+        let cellIdentifier = "StoreSearchResultCell"
         
         var cell : UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if cell == nil{
