@@ -9,12 +9,18 @@ import UIKit
 
 class StoreSearchViewController: UIViewController {
 
+    // Store content from keyboard.
+    struct SearchResult {
+        var name : String = ""
+        var artistName : String = ""
+    }
+
     // MARK: - Outlet variable
     @IBOutlet weak var searchBar : UISearchBar!
     @IBOutlet weak var tableView : UITableView!
     
     // Variable
-    var searchResults = [String]()
+    var searchResults = [SearchResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +30,19 @@ class StoreSearchViewController: UIViewController {
 
 extension StoreSearchViewController : UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         searchResults = []
         for i in 0...2{
-            searchResults.append(String(format: "Fake Result %d for '%@'", i, searchBar.text!))
+            var searchResult = SearchResult()
+            searchResult.name = String(format: "Fake Result %d for", i)
+            searchResult.artistName = searchBar.text!
+            searchResults.append(searchResult)
         }
         tableView.reloadData()
+    }
+    
+    func position(for bar : UIBarPositioning) -> UIBarPosition{
+        return .topAttached
     }
 }
 
@@ -42,10 +56,11 @@ extension StoreSearchViewController : UITableViewDelegate , UITableViewDataSourc
         
         var cell : UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if cell == nil{
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
-        
-        cell.textLabel!.text = searchResults[indexPath.row]
+        let searchResult = searchResults[indexPath.row]
+        cell.textLabel!.text = searchResult.name
+        cell.detailTextLabel!.text = searchResult.artistName
         return cell
     }
 }
