@@ -16,6 +16,7 @@
 		486486362577DF2600C9B1E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486486342577DF2600C9B1E7 /* LaunchScreen.storyboard */; };
 		486486412577DF2700C9B1E7 /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486486402577DF2700C9B1E7 /* StoreSearchTests.swift */; };
 		4864864C2577DF2700C9B1E7 /* StoreSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864864B2577DF2700C9B1E7 /* StoreSearchUITests.swift */; };
+		48DC93A5257B870A0014E201 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DC93A4257B870A0014E201 /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		486486472577DF2700C9B1E7 /* StoreSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4864864B2577DF2700C9B1E7 /* StoreSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchUITests.swift; sourceTree = "<group>"; };
 		4864864D2577DF2700C9B1E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DC93A4257B870A0014E201 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				486486262577DF2500C9B1E7 /* AppDelegate.swift */,
-				486486282577DF2500C9B1E7 /* SceneDelegate.swift */,
-				4864862A2577DF2500C9B1E7 /* StoreSearchViewController.swift */,
-				4864862C2577DF2500C9B1E7 /* Main.storyboard */,
 				486486322577DF2600C9B1E7 /* Assets.xcassets */,
-				486486342577DF2600C9B1E7 /* LaunchScreen.storyboard */,
 				486486372577DF2600C9B1E7 /* Info.plist */,
+				486486342577DF2600C9B1E7 /* LaunchScreen.storyboard */,
+				4864862C2577DF2500C9B1E7 /* Main.storyboard */,
+				486486282577DF2500C9B1E7 /* SceneDelegate.swift */,
+				48DC93A4257B870A0014E201 /* SearchResultCell.xib */,
 				4864862F2577DF2500C9B1E7 /* StoreSearch.xcdatamodeld */,
+				4864862A2577DF2500C9B1E7 /* StoreSearchViewController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				486486362577DF2600C9B1E7 /* LaunchScreen.storyboard in Resources */,
 				486486332577DF2600C9B1E7 /* Assets.xcassets in Resources */,
+				48DC93A5257B870A0014E201 /* SearchResultCell.xib in Resources */,
 				4864862E2577DF2500C9B1E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
