@@ -58,6 +58,7 @@ extension StoreSearchViewController : UITableViewDelegate , UITableViewDataSourc
         if cell == nil{
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
+        
         let searchResult = searchResults[indexPath.row]
         cell.textLabel!.text = searchResult.name
         cell.detailTextLabel!.text = searchResult.artistName
