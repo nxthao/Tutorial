@@ -24,8 +24,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0gF-FX-9XH"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="App name, book, artist, song, album." translatesAutoresizingMaskIntoConstraints="NO" id="jOs-73-HbG">
+                            <searchBar contentMode="redraw" text="" placeholder="App name, book, artist, song, album." translatesAutoresizingMaskIntoConstraints="NO" id="jOs-73-HbG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6pe-ru-h9u"/>
