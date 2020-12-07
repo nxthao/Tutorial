@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482A96AE257CD6F400D21D79 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A96AD257CD6F400D21D79 /* SearchResultCell.swift */; };
 		486486272577DF2500C9B1E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486486262577DF2500C9B1E7 /* AppDelegate.swift */; };
 		486486292577DF2500C9B1E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486486282577DF2500C9B1E7 /* SceneDelegate.swift */; };
 		4864862B2577DF2500C9B1E7 /* StoreSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864862A2577DF2500C9B1E7 /* StoreSearchViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		482A96AD257CD6F400D21D79 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		486486232577DF2500C9B1E7 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		486486262577DF2500C9B1E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		486486282577DF2500C9B1E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				48DC93A4257B870A0014E201 /* SearchResultCell.xib */,
 				4864862F2577DF2500C9B1E7 /* StoreSearch.xcdatamodeld */,
 				4864862A2577DF2500C9B1E7 /* StoreSearchViewController.swift */,
+				482A96AD257CD6F400D21D79 /* SearchResultCell.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				486486272577DF2500C9B1E7 /* AppDelegate.swift in Sources */,
 				486486292577DF2500C9B1E7 /* SceneDelegate.swift in Sources */,
 				486486312577DF2500C9B1E7 /* StoreSearch.xcdatamodeld in Sources */,
+				482A96AE257CD6F400D21D79 /* SearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

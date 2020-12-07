@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class CurrentLocationViewController: UIViewController {
+class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate{
 
-    // Outlet variable
+    // Outlet properties
     @IBOutlet weak var message : UILabel!
     @IBOutlet weak var latitude : UILabel!
     @IBOutlet weak var latitudeValue : UILabel!
@@ -17,8 +18,23 @@ class CurrentLocationViewController: UIViewController {
     @IBOutlet weak var longitudeValue : UILabel!
     @IBOutlet weak var address : UILabel!
     
+    // Properties
+    let locationManager = CLLocationManager()
+    
     // Action
     @IBAction func getLocation(){
+        // Ask permission
+        let authStatus = CLLocationManager().authorizationStatus
+        
+        if authStatus == .notDetermined{
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        // Recieve location
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
         
     }
     
@@ -26,7 +42,24 @@ class CurrentLocationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("didFailWithError: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last!
+        print("didUpdateLocations: \(newLocation)")
+    }
+    
+    // MARK: - Helper methods
+    func showLocationServicesDeniesAlert(){
+        
+    }
 
-
+    func updateLabel(){
+            
+    }
 }
 
