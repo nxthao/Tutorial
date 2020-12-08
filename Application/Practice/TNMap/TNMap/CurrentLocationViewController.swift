@@ -12,14 +12,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
 
     // Outlet properties
     @IBOutlet weak var message : UILabel!
-    @IBOutlet weak var latitude : UILabel!
     @IBOutlet weak var latitudeValue : UILabel!
-    @IBOutlet weak var longitude : UILabel!
     @IBOutlet weak var longitudeValue : UILabel!
     @IBOutlet weak var address : UILabel!
+    @IBOutlet weak var tagButton : UIButton!
+    @IBOutlet weak var getButton : UIButton!
     
     // Properties
     let locationManager = CLLocationManager()
+    
+    var location : CLLocation?
     
     // Action
     @IBAction func getLocation(){
@@ -45,6 +47,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateLabels()
         // Do any additional setup after loading the view.
     }
     
@@ -56,6 +59,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("didUpdateLocations: \(newLocation)")
+        
+        location = newLocation
+        updateLabels()
     }
     
     // MARK: - Helper methods
@@ -68,8 +74,19 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         present(alert, animated: true, completion: nil)
     }
 
-    func updateLabel(){
-            
+    func updateLabels(){
+        if let location = location{
+            latitudeValue.text = String(format: "%0.8f", location.coordinate.latitude)
+            longitudeValue.text = String(format: "%0.8f", location.coordinate.longitude)
+            tagButton.isHidden = false
+            message.text = ""
+        }
+        else{
+            latitudeValue.text = ""
+            longitudeValue.text = ""
+            tagButton.isHidden = true
+            message.text = "Please Tap 'Get Location' button"
+        }
     }
 }
 

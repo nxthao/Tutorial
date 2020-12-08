@@ -131,11 +131,10 @@
                     <tabBarItem key="tabBarItem" title="First" id="Ihm-VW-xgj"/>
                     <connections>
                         <outlet property="address" destination="Ixl-t0-CIz" id="AY3-3N-iF2"/>
-                        <outlet property="latitude" destination="ZAq-JZ-dGT" id="6HJ-Ad-co6"/>
                         <outlet property="latitudeValue" destination="3Cy-qQ-wzm" id="Stb-St-dAb"/>
-                        <outlet property="longitude" destination="YgD-Jx-E9W" id="Rkh-xf-B7R"/>
                         <outlet property="longitudeValue" destination="n8e-u0-s1p" id="qKT-xU-nnS"/>
                         <outlet property="message" destination="RqO-Mb-ryc" id="kZ3-yV-qMR"/>
+                        <outlet property="tagButton" destination="WYZ-ac-cWc" id="W0X-W2-xRW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkJ-SG-0dI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
