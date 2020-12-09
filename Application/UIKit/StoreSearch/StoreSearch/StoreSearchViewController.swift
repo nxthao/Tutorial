@@ -18,6 +18,7 @@ class StoreSearchViewController: UIViewController {
     // MARK: - Outlet variable
     @IBOutlet weak var searchBar : UISearchBar!
     @IBOutlet weak var tableView : UITableView!
+//    @IBOutlet weak var searrBar2 : UISearchBar!
     
     // Variable
     var searchResults = [SearchResult]()
@@ -33,6 +34,8 @@ class StoreSearchViewController: UIViewController {
         // Nothing found cell
         cellNib = UINib(nibName: TableView.CellIdentifiers.nothingResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.nothingResultCell)
+        
+        searchBar.becomeFirstResponder()
     }
     
     struct TableView {

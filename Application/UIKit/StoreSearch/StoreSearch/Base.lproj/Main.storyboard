@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="jOs-73-HbG" id="N9g-3h-nh9"/>
+                        <outlet property="searrBar2" destination="jOs-73-HbG" id="BjS-ia-ZpQ"/>
                         <outlet property="tableView" destination="J4T-lf-GoV" id="e6d-yQ-RM0"/>
                     </connections>
                 </viewController>
