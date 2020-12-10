@@ -17,9 +17,7 @@ class StoreSearchViewController: UIViewController {
 
     // MARK: - Outlet variable
     @IBOutlet weak var searchBar : UISearchBar!
-    @IBOutlet weak var tableView : UITableView!
-//    @IBOutlet weak var searrBar2 : UISearchBar!
-    
+    @IBOutlet weak var tableView : UITableView!    
     // Variable
     var searchResults = [SearchResult]()
     // Search flag
@@ -44,22 +42,28 @@ class StoreSearchViewController: UIViewController {
             static let nothingResultCell = "NothingFoundCell"
         }
     }
+    
+    // MARK: - Helper Methods
+    func iTunesURL(searchText : String) -> URL{
+        let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let urlString = String(format: "https://itumes.apple.com/search?term=%@", encodedText)
+        let url = URL(string: urlString)
+        return url!
+    }
 }
 
 extension StoreSearchViewController : UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchResults = []
-        if searchBar.text! != "Justin"{
-            for i in 0...2{
-                var searchResult = SearchResult()
-                searchResult.name = String(format: "Fake Result %d for", i)
-                searchResult.artistName = searchBar.text!
-                searchResults.append(searchResult)
-            }
+        if !searchBar.text!.isEmpty{
+            searchBar.resignFirstResponder()
+            
+            hasSearch = true
+            searchResults = []
+            
+            let url = iTunesURL(searchText: searchBar.text!)
+            print("URL: '\(url)'")
+            tableView.reloadData()
         }
-        hasSearch = true
-        tableView.reloadData()
     }
     
     // Extend the status bar area to the top.
