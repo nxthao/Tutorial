@@ -131,6 +131,7 @@
                     <tabBarItem key="tabBarItem" title="First" id="Ihm-VW-xgj"/>
                     <connections>
                         <outlet property="address" destination="Ixl-t0-CIz" id="AY3-3N-iF2"/>
+                        <outlet property="getButton" destination="bTZ-zD-3wv" id="v3D-68-xCl"/>
                         <outlet property="latitudeValue" destination="3Cy-qQ-wzm" id="Stb-St-dAb"/>
                         <outlet property="longitudeValue" destination="n8e-u0-s1p" id="qKT-xU-nnS"/>
                         <outlet property="message" destination="RqO-Mb-ryc" id="kZ3-yV-qMR"/>

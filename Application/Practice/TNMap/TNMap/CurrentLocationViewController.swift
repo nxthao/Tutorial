@@ -27,6 +27,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var updatingLocation = false
     var lastLocationError : Error?
     
+    // Revert geocoding
+    var geocoder = CLGeocoder()
+    var placemark : CLPlacemark?
+    var performingReverseGeocoding = false
+    var lastGeocodingError : CLError?
+    
     // Action
     @IBAction func getLocation(){
         // Ask permission
@@ -42,7 +48,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             return
         }
         
-        startLocationManager()
+        if updatingLocation{
+            stopLocationManager()
+        }
+        else {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
+        
         updateLabels()
     }
     
@@ -68,8 +82,39 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         let newLocation = locations.last!
         print("didUpdateLocations: \(newLocation)")
         
-        location = newLocation
-        updateLabels()
+        if newLocation.timestamp.timeIntervalSinceNow < -5{
+            return
+        }
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy{
+            lastLocationError = nil
+            location = newLocation
+            
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
+                print("We done!")
+                stopLocationManager()
+            }
+        }
+        
+        if !performingReverseGeocoding{
+            print("Start to geocode!")
+            performingReverseGeocoding = true
+            geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
+                placemarks, error in
+                self.lastLocationError = error
+                if error == nil, let p = placemarks, !p.isEmpty{
+                    self.placemark = p.last!
+                }
+                else{
+                    self.placemark = nil
+                }
+                self.performingReverseGeocoding = false
+                self.updateLabels()
+            })
+        }
     }
     
     // MARK: - Helper methods
@@ -109,6 +154,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 statusMessage = "Tap ’Get My Location’ to Start"
             }
             message.text = statusMessage
+        }
+        configureGetButton()
+    }
+    
+    func configureGetButton(){
+        if updatingLocation{
+            getButton.setTitle("Stop", for: .normal)
+        }
+        else {
+            getButton.setTitle("Get My location", for: .normal)
         }
     }
     
