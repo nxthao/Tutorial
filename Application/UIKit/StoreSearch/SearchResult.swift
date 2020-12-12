@@ -7,6 +7,13 @@
 
 import Foundation
 
+var trackPrice : Double? = 0.0
+var currency = ""
+var artworkUrl60 = ""
+var artworkUrl100 = ""
+var trackViewUrl : String? = ""
+var primaryGenreName = ""
+
 class ResultArray: Codable {
     var resultCount = 0
     var results = [SearchResult]()

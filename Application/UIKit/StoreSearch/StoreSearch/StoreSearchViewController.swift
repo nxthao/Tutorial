@@ -50,6 +50,7 @@ class StoreSearchViewController: UIViewController {
             return try Data(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
+            showNetworkError()
             return nil
         }
     }
@@ -63,6 +64,15 @@ class StoreSearchViewController: UIViewController {
             print("JSON Error: \(error)")
             return []
         }
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(title: "Whoops", message: "There was an error accessing the iTunes Store. Please tray again", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 
