@@ -46,9 +46,18 @@ class StoreSearchViewController: UIViewController {
     // MARK: - Helper Methods
     func iTunesURL(searchText : String) -> URL{
         let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://itumes.apple.com/search?term=%@", encodedText)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@", encodedText)
         let url = URL(string: urlString)
         return url!
+    }
+    
+    func performStoreRequest(with url : URL) -> String?{
+        do {
+            return try String(contentsOf: url, encoding: .utf8)
+        } catch {
+            print("Download Error: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 
@@ -62,6 +71,10 @@ extension StoreSearchViewController : UISearchBarDelegate{
             
             let url = iTunesURL(searchText: searchBar.text!)
             print("URL: '\(url)'")
+            
+            if let jsonString = performStoreRequest(with: url) {
+                print("Receive the data: \(jsonString)")
+            }
             tableView.reloadData()
         }
     }
