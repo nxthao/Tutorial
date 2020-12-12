@@ -9,12 +9,6 @@ import UIKit
 
 class StoreSearchViewController: UIViewController {
 
-    // Store content from keyboard.
-    struct SearchResult {
-        var name : String = ""
-        var artistName : String = ""
-    }
-
     // MARK: - Outlet variable
     @IBOutlet weak var searchBar : UISearchBar!
     @IBOutlet weak var tableView : UITableView!    
@@ -51,12 +45,23 @@ class StoreSearchViewController: UIViewController {
         return url!
     }
     
-    func performStoreRequest(with url : URL) -> String?{
+    func performStoreRequest(with url : URL) -> Data?{
         do {
-            return try String(contentsOf: url, encoding: .utf8)
+            return try Data(contentsOf: url)
         } catch {
             print("Download Error: \(error.localizedDescription)")
             return nil
+        }
+    }
+    
+    func parse(data : Data) -> [SearchResult]{
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(ResultArray.self, from: data)
+            return result.results
+        } catch{
+            print("JSON Error: \(error)")
+            return []
         }
     }
 }
@@ -72,8 +77,9 @@ extension StoreSearchViewController : UISearchBarDelegate{
             let url = iTunesURL(searchText: searchBar.text!)
             print("URL: '\(url)'")
             
-            if let jsonString = performStoreRequest(with: url) {
-                print("Receive the data: \(jsonString)")
+            if let data = performStoreRequest(with: url) {
+                let results = parse(data: data)
+                print("Receive the data: \(results)")
             }
             tableView.reloadData()
         }
