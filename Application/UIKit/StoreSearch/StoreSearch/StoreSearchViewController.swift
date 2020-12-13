@@ -99,15 +99,19 @@ extension StoreSearchViewController : UISearchBarDelegate{
             print("URL: '\(url)'")
             
             queue.async {
+                // code in background
                 if let data = self.performStoreRequest(with: url) {
                     self.searchResults = self.parse(data: data)
                     self.searchResults.sort { $0 < $1}
                     print("Done!")
+                    DispatchQueue.main.async {
+                        // UPdate the UI in main queue
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                    }
                     return
                 }
             }
-            isLoading = false
-            tableView.reloadData()
         }
     }
     
