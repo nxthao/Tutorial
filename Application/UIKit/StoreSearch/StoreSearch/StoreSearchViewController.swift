@@ -93,25 +93,51 @@ extension StoreSearchViewController : UISearchBarDelegate{
             tableView.reloadData()
             hasSearch = true
             searchResults = []
-            let queue = DispatchQueue.global()
-            
-            let url = self.iTunesURL(searchText: searchBar.text!)
-            print("URL: '\(url)'")
-            
-            queue.async {
-                // code in background
-                if let data = self.performStoreRequest(with: url) {
-                    self.searchResults = self.parse(data: data)
-                    self.searchResults.sort { $0 < $1}
-                    print("Done!")
-                    DispatchQueue.main.async {
-                        // UPdate the UI in main queue
-                        self.isLoading = false
-                        self.tableView.reloadData()
+//            let queue = DispatchQueue.global()
+//
+//            let url = self.iTunesURL(searchText: searchBar.text!)
+//            print("URL: '\(url)'")
+//
+//            queue.async {
+//                // code in background
+//                if let data = self.performStoreRequest(with: url) {
+//                    self.searchResults = self.parse(data: data)
+//                    self.searchResults.sort { $0 < $1}
+//                    print("Done!")
+//                    DispatchQueue.main.async {
+//                        // UPdate the UI in main queue
+//                        self.isLoading = false
+//                        self.tableView.reloadData()
+//                    }
+//                    return
+//                }
+//            }
+            let url = iTunesURL(searchText: searchBar.text!)
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: url, completionHandler: {
+                data, response, error in
+                if let error = error{
+                    print("Failure! \(error.localizedDescription)")
+                }else if let httpResponse = response as? HTTPURLResponse,
+                         httpResponse.statusCode == 200 {
+                    if let data = data{
+                        self.searchResults = self.parse(data: data)
+                        self.searchResults.sort { $0 < $1 }
+                        DispatchQueue.main.async {
+                            // UPdate the UI in main queue
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                            print("============  UI On main thread?" + (Thread.current.isMainThread ? "Yes" : "No"))
+                        }
+                        print("============  Closure On main thread?" + (Thread.current.isMainThread ? "Yes" : "No"))
+                        return
                     }
-                    return
                 }
-            }
+                else{
+                    print("Faillure! \(response!)")
+                }
+            })
+            dataTask.resume()
         }
     }
     
