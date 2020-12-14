@@ -31,7 +31,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var geocoder = CLGeocoder()
     var placemark : CLPlacemark?
     var performingReverseGeocoding = false
-    var lastGeocodingError : CLError?
+    var lastGeocodingError : Error?
     
     // Action
     @IBAction func getLocation(){
@@ -104,7 +104,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             performingReverseGeocoding = true
             geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
                 placemarks, error in
-                self.lastLocationError = error
+                self.lastGeocodingError = error
                 if error == nil, let p = placemarks, !p.isEmpty{
                     self.placemark = p.last!
                 }
