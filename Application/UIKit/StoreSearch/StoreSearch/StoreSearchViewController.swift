@@ -19,6 +19,8 @@ class StoreSearchViewController: UIViewController {
     // Indicator flag
     var isLoading = false
     
+    var dataTask : URLSessionDataTask?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
@@ -89,35 +91,19 @@ extension StoreSearchViewController : UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !searchBar.text!.isEmpty{
             searchBar.resignFirstResponder()
+            dataTask?.cancel()
             isLoading = true
             tableView.reloadData()
             hasSearch = true
             searchResults = []
-//            let queue = DispatchQueue.global()
-//
-//            let url = self.iTunesURL(searchText: searchBar.text!)
-//            print("URL: '\(url)'")
-//
-//            queue.async {
-//                // code in background
-//                if let data = self.performStoreRequest(with: url) {
-//                    self.searchResults = self.parse(data: data)
-//                    self.searchResults.sort { $0 < $1}
-//                    print("Done!")
-//                    DispatchQueue.main.async {
-//                        // UPdate the UI in main queue
-//                        self.isLoading = false
-//                        self.tableView.reloadData()
-//                    }
-//                    return
-//                }
-//            }
+
             let url = iTunesURL(searchText: searchBar.text!)
             let session = URLSession.shared
-            let dataTask = session.dataTask(with: url, completionHandler: {
+            dataTask = session.dataTask(with: url, completionHandler: {
                 data, response, error in
-                if let error = error{
+                if let error = error as NSError?, error.code == -999 {
                     print("Failure! \(error.localizedDescription)")
+                    return
                 }else if let httpResponse = response as? HTTPURLResponse,
                          httpResponse.statusCode == 200 {
                     if let data = data{
@@ -132,13 +118,20 @@ extension StoreSearchViewController : UISearchBarDelegate{
                         print("============  Closure On main thread?" + (Thread.current.isMainThread ? "Yes" : "No"))
                         return
                     }
+                    DispatchQueue.main.sync {
+                        self.hasSearch = false
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                        self.showNetworkError()
+                    }
                 }
                 else{
                     print("Faillure! \(response!)")
                 }
             })
-            dataTask.resume()
+            
         }
+        dataTask?.resume()
     }
     
     // Extend the status bar area to the top.
