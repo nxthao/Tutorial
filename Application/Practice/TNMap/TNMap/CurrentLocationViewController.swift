@@ -133,6 +133,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             longitudeValue.text = String(format: "%0.8f", location.coordinate.longitude)
             tagButton.isHidden = false
             message.text = ""
+            if let placemark = placemark{
+                address.text = string(from: placemark)
+            } else if performingReverseGeocoding{
+                address.text = "Searching for address"
+            } else if lastGeocodingError != nil{
+                address.text = "Error when finding location"
+            }
+            else{
+                address.text = "No address"
+            }
         }
         else{
             latitudeValue.text = ""
@@ -167,6 +177,29 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
+    func string(from placemark : CLPlacemark) -> String{
+        var line1 = ""
+        if let s = placemark.subThoroughfare{
+            line1 += s + " "
+        }
+        if let s = placemark.thoroughfare{
+            line1 += s
+        }
+        
+        var line2 = ""
+        if let s = placemark.locality{
+            line2 += s + " "
+        }
+        if let s = placemark.administrativeArea{
+            line2 += s + " "
+        }
+        if let s = placemark.postalCode{
+            line2 += s
+        }
+        
+        return line1 + "\n" + line2
+    }
+    
     // MARK: - Location Manager
     func stopLocationManager(){
         if updatingLocation{
@@ -178,11 +211,14 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     func startLocationManager(){
         if CLLocationManager.locationServicesEnabled(){
+            placemark = nil
+            lastGeocodingError = nil
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
         }
     }
+    
 }
 
