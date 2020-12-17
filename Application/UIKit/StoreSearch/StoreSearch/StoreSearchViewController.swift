@@ -21,6 +21,12 @@ class StoreSearchViewController: UIViewController {
     
     var dataTask : URLSessionDataTask?
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        print("Segment changed: \(sender.selectedSegmentIndex)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)

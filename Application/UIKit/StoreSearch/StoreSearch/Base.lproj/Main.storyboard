@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,21 +34,47 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6pe-ru-h9u"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byJ-Nl-bUr">
+                                <rect key="frame" x="0.0" y="55" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="cDM-YL-g68">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BPI-ss-CYh">
+                                            <rect key="frame" x="37.5" y="5.5" width="300" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title="Software"/>
+                                                <segment title="E-Books"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="7PF-uj-fVw"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jOs-73-HbG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Zv-m6-pLZ"/>
+                            <constraint firstItem="byJ-Nl-bUr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="4Gn-Pi-jC6"/>
                             <constraint firstItem="J4T-lf-GoV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5MM-b5-GVT"/>
+                            <constraint firstItem="byJ-Nl-bUr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9ob-cH-brB"/>
+                            <constraint firstItem="byJ-Nl-bUr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DYY-o5-8qz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J4T-lf-GoV" secondAttribute="bottom" id="RB1-wh-SCL"/>
                             <constraint firstItem="jOs-73-HbG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WdN-UK-ZJ1"/>
                             <constraint firstItem="jOs-73-HbG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bRY-ca-XjN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="byJ-Nl-bUr" secondAttribute="bottom" constant="568" id="duW-C0-bHH"/>
                             <constraint firstItem="J4T-lf-GoV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="j8O-Wb-HZd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J4T-lf-GoV" secondAttribute="trailing" id="rZK-w2-Jol"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="jOs-73-HbG" id="N9g-3h-nh9"/>
+                        <outlet property="segmentedControl" destination="BPI-ss-CYh" id="5EO-R8-cKG"/>
                         <outlet property="tableView" destination="J4T-lf-GoV" id="e6d-yQ-RM0"/>
                     </connections>
                 </viewController>
