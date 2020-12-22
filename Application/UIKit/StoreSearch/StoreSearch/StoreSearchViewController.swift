@@ -136,7 +136,7 @@ extension StoreSearchViewController : UISearchBarDelegate{
                         print("============  Closure On main thread?" + (Thread.current.isMainThread ? "Yes" : "No"))
                         return
                     }
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
                         self.hasSearch = false
                         self.isLoading = false
                         self.tableView.reloadData()
@@ -192,13 +192,7 @@ extension StoreSearchViewController : UITableViewDelegate , UITableViewDataSourc
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
             let searchResult = searchResults[indexPath.row]
-            cell.nameLabel.text = searchResult.name
-            
-            if searchResult.artist.isEmpty {
-                cell.artistNameLabel.text = "Unknown"
-            } else {
-                cell.artistNameLabel.text = String(format: "%@ (%@)", searchResult.artist, searchResult.type)
-            }
+            cell.configure(for: searchResult)
             return cell
         }
     }
