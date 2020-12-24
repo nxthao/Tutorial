@@ -27,6 +27,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
+        popupView.layer.cornerRadius = 10
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
+        gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.delegate = self
+        view.addGestureRecognizer(gestureRecognizer)
         // Do any additional setup after loading the view.
     }
     
@@ -55,3 +62,11 @@ extension DetailViewController: UIViewControllerTransitioningDelegate{
         return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
+
+extension DetailViewController : UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return (touch.view === self.view)
+    }
+}
+
+
