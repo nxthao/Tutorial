@@ -18,6 +18,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var genreLabel : UILabel!
     @IBOutlet weak var priceButton : UIButton!
     
+    // Properties
+    var searchResult : SearchResult!
+    
     required init?(coder aDecoder : NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = .custom
