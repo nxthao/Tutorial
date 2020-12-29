@@ -38,6 +38,9 @@ class DetailViewController: UIViewController {
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
         // Do any additional setup after loading the view.
+        if searchResult != nil{
+            updateUI()
+        }
     }
     
     // MARK: - Actions
@@ -45,7 +48,19 @@ class DetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
+    // MARK: - Helper Methods
+    func updateUI(){
+        nameLabel.text = searchResult.name
+        
+        if searchResult.artist.isEmpty{
+            artistNameLabel.text = "Unknown"
+        } else {
+            artistNameLabel.text = searchResult.artist
+        }
+        
+        kindLabel.text = searchResult.type
+        genreLabel.text = searchResult.genre
+    }
 
     /*
     // MARK: - Navigation
@@ -60,6 +75,7 @@ class DetailViewController: UIViewController {
 }
 
 
+// MARK: - Extension
 extension DetailViewController: UIViewControllerTransitioningDelegate{
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
