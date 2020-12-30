@@ -150,6 +150,7 @@ extension StoreSearchViewController : UISearchBarDelegate{
             
         }
         dataTask?.resume()
+        print("Result: \(searchResults)")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){

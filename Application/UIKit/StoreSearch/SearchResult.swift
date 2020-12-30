@@ -85,6 +85,8 @@ class SearchResult : Codable , CustomStringConvertible {
                 return "Song"
             case "tv-episode":
                 return "TV Episode"
+            case "software":
+                return "Software"
             default:
                 return "Unknown"
         }
