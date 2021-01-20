@@ -18,18 +18,7 @@ class RandomWord extends StatefulWidget {
 class _RandomWordState extends State<RandomWord> {
   final _suggestions = <WordPair>[];
   final _biggerFont = TextStyle(fontSize: 18.0);
-  final _saved = Set<WordPair>();
-  bool _isFavorited = false;
-
-  void _toggleFavorite(WordPair data) {
-    setState(() {
-      if (_isFavorited) {
-        _saved.remove(data);
-      } else {
-        _saved.add(data);
-      }
-    });
-  }
+  final _saved = <WordPair>{};
 
   @override
   Widget build(BuildContext context) {
@@ -51,26 +40,27 @@ class _RandomWordState extends State<RandomWord> {
   }
 
   Widget _buildRow(WordPair data) {
-    _isFavorited = _saved.contains(data);
+    final _isFavorited = _saved.contains(data);
+    void _toggleFavorite(WordPair data) {
+      setState(() {
+        if (_isFavorited) {
+          _saved.remove(data);
+        } else {
+          _saved.add(data);
+        }
+      });
+    }
+
     return ListTile(
       title: Text(
         data.asPascalCase,
         style: _biggerFont,
       ),
       trailing: IconButton(
-        icon:
-            (_isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
-      ),
-      // onPressed: () => _toggleFavorite(data)),
-      onTap: () {
-        setState(() {
-          if (_isFavorited) {
-            _saved.remove(data);
-          } else {
-            _saved.add(data);
-          }
-        });
-      },
+          icon: (_isFavorited
+              ? Icon(Icons.favorite)
+              : Icon(Icons.favorite_border)),
+          onPressed: () => _toggleFavorite(data)),
     );
   }
 }
