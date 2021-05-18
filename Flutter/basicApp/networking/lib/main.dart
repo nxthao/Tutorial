@@ -20,7 +20,7 @@ class Album {
 
 class FetchAlbum {
   String getPath() {
-    return url + "albums/1";
+    return url + "albums/5";
   }
 
   Future<Album> getAlbum() async {
@@ -69,7 +69,8 @@ FutureBuilder _albumData(futureAlbum) {
       future: futureAlbum,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Text("${snapshot.data.userID}");
+          return Text(
+              "${snapshot.data.userID} and ${snapshot.data.title} - ${snapshot.data.userID}");
         } else if (snapshot.hasError) {
           return Text("${snapshot.error}");
         }
